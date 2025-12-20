@@ -1,0 +1,140 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:wms_sm/module/menu/menu_permintaan_stok_out/view/component/form_permintaan_keluar.dart';
+import 'package:wms_sm/module/menu/menu_permintaan_stok_out/view/component/success_page_req_out.dart';
+import '../../../../core/util_manager/appbar_manager.dart';
+import '../../../../core/util_manager/button_manager.dart';
+import '../../../../core/util_manager/dialog_manager.dart';
+import '../controller/req_stock_out_controller.dart';
+
+class RequestStockOutContainer extends GetView<ReqStockOutController> {
+  const RequestStockOutContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    Widget getBody() {
+      if (controller.pageIdx.value == 0) {
+        return formPermintaanStokKeluar(context);
+      } else {
+        return successPage();// halaman sukses input
+      }
+    }
+
+    Widget bottomButton() {
+      if (controller.pageIdx.value == 0) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: Button.button(
+                  label: "Batal",
+                  color: Colors.white,
+                  fontColor: Colors.black,
+                  function: () {
+                    controller.onClearData();
+                  },
+                ),
+              ),
+              const SizedBox(width: 5),
+              Expanded(
+                child: Button.button(
+                  label: "Simpan Permintaan",
+                  function: () async {
+                     controller.insertRequestStokKeluar();
+                  },
+                ),
+              ),
+            ],
+          ),
+        );
+      }  else {
+        return Button.bottomActionButton(
+          icon: Icons.print,
+          actionText: "Cetak",
+          onTap: () {
+             controller.onToPrint();
+          },
+        );
+      }
+    }
+
+    AppBar appBarStok() {
+      if (controller.pageIdx.value == 0) {
+        return AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              GestureDetector(
+                onTap: () => controller.onBack(),
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1, color: Colors.grey),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Icon(
+                    Icons.arrow_back_rounded,
+                    color: Colors.black,
+                    size: 22,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Text(
+                "Permintaan Stok Keluar",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          centerTitle: true,
+        );
+      } else {
+        return AppBarManager.appbarMenu(
+          onTap: () {
+            controller.onBack();
+          },
+          menu: "Konfirmasi",
+        );
+      }
+    }
+
+    return Obx(
+          () => PopScope(
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) {
+          if (didPop) {
+            return;
+          }
+          controller.onBack();
+        },
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: appBarStok(),
+          body: SingleChildScrollView(
+            child: Stack(
+              children: [
+                Padding(padding: const EdgeInsets.all(8), child: getBody()),
+                controller.isLoading.isTrue
+                    ? LoadingIndicatorWithText(title: "Mohon tunggu")
+                    : const SizedBox.shrink(),
+              ],
+            ),
+          ),
+          bottomNavigationBar: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: bottomButton(),
+          ),
+        ),
+      ),
+    );
+  }
+}
