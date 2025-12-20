@@ -5,8 +5,6 @@ abstract class Routes {
   static const kategoriStok = _Paths.kategoriStok;
   static const itemVariasiStok = _Paths.itemVariasiStok;
   static const laporanPage = _Paths.laporanPage;
-  static const stokMasuk = _Paths.stokMasuk;
-  static const stokKeluar = _Paths.stokKeluar;
   static const menuLocation = _Paths.menuLocation;
   static const reqMasuk = _Paths.reqMasuk;
   static const reqKeluar = _Paths.reqKeluar;
@@ -22,8 +20,6 @@ abstract class _Paths {
   static const kategoriStok = '/kategoriStok';
   static const itemVariasiStok = '/itemVariasiStok';
   static const laporanPage = '/laporanPage';
-  static const stokMasuk = '/stokMasuk';
-  static const stokKeluar = '/stokKeluar';
   static const menuLocation = '/menuLocation';
   static const reqMasuk = '/reqMasuk';
   static const reqKeluar = '/reqKeluar';

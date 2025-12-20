@@ -55,18 +55,6 @@ var menu = [
     "rute" : Routes.laporanPage
   },
   {
-    "icon" : Icons.download,
-    "title" : "Input Stock In",
-    "subtitle" : "Catat stok masuk",
-    "rute" : Routes.stokMasuk
-  },
-  {
-    "icon" : Icons.upload,
-    "title" : "Input Stock Out",
-    "subtitle" : "Catat stok keluar",
-    "rute" : Routes.stokKeluar
-  },
-  {
     "icon" : Icons.location_on,
     "title" : "Kelola Lokasi",
     "subtitle" : "Kelola dan lacak lokasi stok",
