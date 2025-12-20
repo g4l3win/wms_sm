@@ -1,8 +1,8 @@
 import 'dart:developer';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_masuk/controller/data_stok_masuk_controller.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_masuk/controller/revisi_stock_masuk_controller.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 import '../../menu_laporan/data/stok_masuk_model.dart';
 
@@ -24,7 +24,7 @@ extension RiwayatStokMasukController on RevisiStockMasukController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal mendapatkan scan",
         content: "error $e",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     }
@@ -66,7 +66,7 @@ extension RiwayatStokMasukController on RevisiStockMasukController {
             return SnackBarManager().onShowSnacbarMessage(
               title: "Error hapus",
               content: "Terdapat data null",
-              colors: Colors.red,
+              colors: AppTheme.redColor,
               position: SnackPosition.BOTTOM,
             );
           }
@@ -78,7 +78,7 @@ extension RiwayatStokMasukController on RevisiStockMasukController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Hapus berhasil",
         content: "Data berhasil dihapus",
-        colors: Colors.green,
+        colors: AppTheme.greenColor,
         position: SnackPosition.BOTTOM,
       );
     } catch (e) {
@@ -86,7 +86,7 @@ extension RiwayatStokMasukController on RevisiStockMasukController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Error hapus",
         content: "$e",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     }

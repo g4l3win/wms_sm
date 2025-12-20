@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'app_theme.dart';
+
 class AppBarManager {
    static AppBar appbarMenu({required String menu,Function()? onTap}) {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: Colors.white,
+      backgroundColor: AppTheme.whiteColor,
       elevation: 0,
       title:
       Row(
@@ -17,13 +19,13 @@ class AppBarManager {
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 1,
-                  color: Colors.grey,
+                  color: AppTheme.greyColor
                 ),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.arrow_back_rounded,
-                color: Colors.black,
+                color: AppTheme.blackColor,
                 size: 22,
               ),
             ),
@@ -31,8 +33,8 @@ class AppBarManager {
           const SizedBox(width: 10,),
           Text(
             menu,
-            style: const TextStyle(
-              color: Colors.black,
+            style: TextStyle(
+              color: AppTheme.blackColor,
               fontWeight: FontWeight.bold,
               fontSize:16,
             ),
@@ -47,15 +49,15 @@ class AppBarManager {
    static AppBar appbarConfirmation({required String menu}) {
      return AppBar(
        automaticallyImplyLeading: false,
-       backgroundColor: Colors.white,
+       backgroundColor: AppTheme.whiteColor,
        elevation: 0,
        title:
        Row(
          children: [
            Text(
              menu,
-             style: const TextStyle(
-               color: Colors.black,
+             style: TextStyle(
+               color: AppTheme.blackColor,
                fontWeight: FontWeight.bold,
                fontSize:16,
              ),

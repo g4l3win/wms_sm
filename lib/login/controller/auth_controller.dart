@@ -10,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/database/data/m_user.dart';
 import '../../core/database/database_helper/database_helper.dart';
+import '../../core/util_manager/app_theme.dart';
 import '../../core/util_manager/snackbar_manager.dart';
 import '../../navigation/routes.dart';
 
@@ -133,7 +134,7 @@ class AuthController extends GetxController {
           SnackBarManager().onShowSnacbarMessage(
               title: "Login gagal",
               content: "Username atau Password tidak sesuai",
-              colors: Colors.red,
+              colors: AppTheme.redColor,
               position: SnackPosition.TOP);
         }
       }
@@ -141,14 +142,14 @@ class AuthController extends GetxController {
         SnackBarManager().onShowSnacbarMessage(
             title: "Login gagal",
             content: "Data pengguna tidak ditemukan",
-            colors: Colors.red,
+            colors: AppTheme.redColor,
             position: SnackPosition.TOP);
       }
     } catch (e) {
       SnackBarManager().onShowSnacbarMessage(
           title: "Login gagal",
           content: "Silakan masukkan kembali password",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP);
     }
   }

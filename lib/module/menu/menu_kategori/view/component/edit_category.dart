@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../kategori_stok_container.dart';
 
@@ -13,7 +14,7 @@ extension EditCategory on KategoriStokContainer {
           FormInputText(
             title: "No Kategori",
             txtcontroller: controller.fieldEditNoKategori,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: false,
             txtLine: 1,
@@ -25,7 +26,7 @@ extension EditCategory on KategoriStokContainer {
           FormInputText(
             title: "Nama Kategori",
             txtcontroller: controller.fieldEditNamaKategori,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: true,
             txtLine: 1,

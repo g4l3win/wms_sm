@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_permintaan_stok_in/view/component/form_permintaan_masuk.dart';
 import 'package:wms_sm/module/menu/menu_permintaan_stok_in/view/component/success_page_req_in.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/appbar_manager.dart';
 import '../../../../core/util_manager/button_manager.dart';
 import '../../../../core/util_manager/dialog_manager.dart';
@@ -29,8 +30,8 @@ class RequestStockInContainer extends GetView<ReqStockInController> {
               Expanded(
                 child: Button.button(
                   label: "Batal",
-                  color: Colors.white,
-                  fontColor: Colors.black,
+                  color: AppTheme.whiteColor,
+                  fontColor: AppTheme.blackColor,
                   function: () {
                     controller.onClearData();
                   },
@@ -63,7 +64,7 @@ class RequestStockInContainer extends GetView<ReqStockInController> {
       if (controller.pageIdx.value == 0) {
         return AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.whiteColor,
           elevation: 0,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -73,12 +74,12 @@ class RequestStockInContainer extends GetView<ReqStockInController> {
                 child: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.grey),
+                    border: Border.all(width: 1, color: AppTheme.greyColor),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.arrow_back_rounded,
-                    color: Colors.black,
+                    color: AppTheme.blackColor,
                     size: 22,
                   ),
                 ),
@@ -87,7 +88,7 @@ class RequestStockInContainer extends GetView<ReqStockInController> {
                 Text(
                   "Permintaan Stok Masuk",
                   style: TextStyle(
-                    color: Colors.black,
+                    color: AppTheme.blackColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
@@ -117,7 +118,7 @@ class RequestStockInContainer extends GetView<ReqStockInController> {
           controller.onBack();
         },
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.whiteColor,
           appBar: appBarStok(),
           body: SingleChildScrollView(
             child: Stack(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
+import 'app_theme.dart';
 import 'button_manager.dart';
 
 class DialogManager {
@@ -42,8 +43,8 @@ class DialogManager {
                 right: 0,
                 child: Text(
                   judul,
-                  style: const TextStyle(
-                      color: Colors.black,
+                  style: TextStyle(
+                      color: AppTheme.blackColor,
                       fontSize: 16,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
@@ -55,7 +56,7 @@ class DialogManager {
                 right: 0,
                 child: Text(
                   content,
-                  style: const TextStyle(color: Colors.black, fontSize: 14),
+                  style: TextStyle(color: AppTheme.blackColor, fontSize: 14),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -84,7 +85,7 @@ class DialogManager {
           ],
         )
       ],
-      content: const SizedBox(
+      content: SizedBox(
         height: 250,
         child: Center(
           child: Stack(
@@ -96,7 +97,7 @@ class DialogManager {
                 child: Text(
                   "ROP = (Average Daily Demand × Lead Time) + Safety Stock",
                   style: TextStyle(
-                      color: Colors.red,
+                      color: AppTheme.redColor,
                       fontSize: 16,
                       fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
@@ -110,7 +111,7 @@ class DialogManager {
                   "Average Daily Demand = jumlah rata-rata barang laku terjual dalam sehari\n\n"
                       "Lead Time = Waktu yang diperlukan untuk mengisi kembali stok\n\n"
                       "Safety Stock = Stok minimal yang harus tersedia di dalam gudang",
-                  style: TextStyle(color: Colors.black, fontSize: 14),
+                  style: TextStyle(color: AppTheme.blackColor, fontSize: 14),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -131,7 +132,7 @@ class LoadingIndicatorWithText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.white,
+      backgroundColor: AppTheme.whiteColor,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -144,10 +145,10 @@ class LoadingIndicatorWithText extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: AppTheme.blackColor,
             ),
           ),
         ],

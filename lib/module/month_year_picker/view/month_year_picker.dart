@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/util_manager/app_theme.dart';
 import '../../../core/util_manager/button_manager.dart';
 import '../controller/month_year_picker_controller.dart';
 
@@ -21,9 +22,9 @@ class CustomMonthYearPicker extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey.shade400),
+            border: Border.all(color: AppTheme.greyColor400),
             borderRadius: BorderRadius.circular(8),
-            color: Colors.white,
+            color: AppTheme.whiteColor,
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<int>(
@@ -39,15 +40,15 @@ class CustomMonthYearPicker extends StatelessWidget {
 
     return AlertDialog(
       icon: const Icon(Icons.calendar_month),
-      iconColor: Colors.black,
-      backgroundColor: Colors.white,
+      iconColor: AppTheme.blackColor,
+      backgroundColor: AppTheme.whiteColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
-      title: const Text(
+      title: Text(
         'Pilih bulan dan tahun',
         style: TextStyle(
-          color: Colors.black,
+          color: AppTheme.blackColor,
           fontSize: 16,
           fontWeight: FontWeight.bold,
         ),

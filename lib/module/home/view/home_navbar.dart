@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/util_manager/app_theme.dart';
 import 'home_page.dart';
 
 extension HomeNavbar on HomePage {
@@ -11,22 +12,22 @@ extension HomeNavbar on HomePage {
 
     Color? getColor(int index) {
       return controller.pageIdx.value == index
-          ? Colors.red
-          : Colors.grey.shade300;
+          ? AppTheme.redColor
+          : AppTheme.lightGrey;
     }
 
     return IntrinsicHeight(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-        decoration: const BoxDecoration(
-          color: Colors.white,
+        decoration: BoxDecoration(
+          color: AppTheme.whiteColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10),
             topRight: Radius.circular(10),
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey,
+              color: AppTheme.greyColor,
               spreadRadius: 3,
               blurRadius: 3,
               offset: Offset(0, 3),

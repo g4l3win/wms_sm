@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/controller/add_variasi_only_controller.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/view/component/bottom_sheet_image_picker.dart';
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/dialog_manager.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../item_variasi_stok_container.dart';
@@ -17,44 +18,53 @@ extension AddVariasiItem on ItemVariasiStokContainer {
           Text("Variasi ${index + 1}"),
           RichText(
             text: TextSpan(
-                text: "Upload Gambar",
-                style: const TextStyle(color: Colors.black, fontWeight:FontWeight.bold, ),
-                children:   [
-                  TextSpan(
-                    text: ' *',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ]
-
+              text: "Upload Gambar",
+              style: TextStyle(
+                color: AppTheme.blackColor,
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(
+                  text: ' *',
+                  style: TextStyle(color: AppTheme.redColor),
+                ),
+              ],
             ),
           ),
           GestureDetector(
             onTap: () {
               Get.bottomSheet(
-                  enableDrag: false, bottomSheetImagePicker(form: form));
+                enableDrag: false,
+                bottomSheetImagePicker(form: form),
+              );
             },
             child: Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.grey[200],
-                ),
-                child: Obx(
-                  () => form.image.value == null
-                      ? const Icon(Icons.image, size: 40, color: Colors.grey)
-                      : 
-                   ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child:Image.file(
-                          form.image.value!,
-                          fit: BoxFit.cover,
-                          cacheWidth: 200,
-                          cacheHeight: 200,
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                border: Border.all(color: AppTheme.greyColor),
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.grey[200],
+              ),
+              child: Obx(
+                () =>
+                    form.image.value == null
+                        ? Icon(
+                          Icons.image,
+                          size: 40,
+                          color: AppTheme.greyColor,
+                        )
+                        : ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.file(
+                            form.image.value!,
+                            fit: BoxFit.cover,
+                            cacheWidth: 200,
+                            cacheHeight: 200,
+                          ),
                         ),
-                     ),
-                )),
+              ),
+            ),
           ),
           Row(
             children: [
@@ -65,7 +75,7 @@ extension AddVariasiItem on ItemVariasiStokContainer {
                   txtReadonly: false,
                   title: "No Variasi Warna",
                   txtcontroller: form.noVariasiController,
-                  borderColors: Colors.grey.shade300,
+                  borderColors: AppTheme.lightGrey,
                   textInputType: TextInputType.text,
                   isMandatory: true,
                 ),
@@ -77,7 +87,7 @@ extension AddVariasiItem on ItemVariasiStokContainer {
                   txtReadonly: false,
                   title: "Variasi Warna",
                   txtcontroller: form.warnaController,
-                  borderColors: Colors.grey.shade300,
+                  borderColors: AppTheme.lightGrey,
                   textInputType: TextInputType.text,
                   isMandatory: true,
                 ),
@@ -93,7 +103,7 @@ extension AddVariasiItem on ItemVariasiStokContainer {
                   txtReadonly: false,
                   title: "Jumlah Stok",
                   txtcontroller: form.jumlahController,
-                  borderColors: Colors.grey.shade300,
+                  borderColors: AppTheme.lightGrey,
                   textInputType: TextInputType.number,
                   isMandatory: true,
                 ),
@@ -105,7 +115,7 @@ extension AddVariasiItem on ItemVariasiStokContainer {
                   txtReadonly: false,
                   title: "Harga",
                   txtcontroller: form.hargaController,
-                  borderColors: Colors.grey.shade300,
+                  borderColors: AppTheme.lightGrey,
                   textInputType: TextInputType.number,
                   isMandatory: true,
                 ),
@@ -122,7 +132,7 @@ extension AddVariasiItem on ItemVariasiStokContainer {
                   txtReadonly: false,
                   title: "Rata-rata permintaan",
                   txtcontroller: form.fieldAvgDaily,
-                  borderColors: Colors.grey.shade300,
+                  borderColors: AppTheme.lightGrey,
                   textInputType: TextInputType.number,
                   isMandatory: true,
                   function: (value) {
@@ -137,7 +147,7 @@ extension AddVariasiItem on ItemVariasiStokContainer {
                   txtReadonly: false,
                   title: "Lead Time (hari)",
                   txtcontroller: form.fieldLeadTime,
-                  borderColors: Colors.grey.shade300,
+                  borderColors: AppTheme.lightGrey,
                   textInputType: TextInputType.number,
                   isMandatory: true,
                   function: (value) {
@@ -156,7 +166,7 @@ extension AddVariasiItem on ItemVariasiStokContainer {
                   txtReadonly: false,
                   title: "Safety stock",
                   txtcontroller: form.fieldSafetyStock,
-                  borderColors: Colors.grey.shade300,
+                  borderColors: AppTheme.lightGrey,
                   textInputType: TextInputType.number,
                   isMandatory: true,
                   function: (value) {
@@ -171,14 +181,14 @@ extension AddVariasiItem on ItemVariasiStokContainer {
                   txtReadonly: true,
                   title: "ROP",
                   txtcontroller: form.fieldROP,
-                  borderColors: Colors.grey.shade300,
+                  borderColors: AppTheme.lightGrey,
                   textInputType: TextInputType.number,
                   isMandatory: true,
                 ),
               ),
             ],
           ),
-          const Divider()
+          const Divider(),
         ],
       ),
     );
@@ -194,12 +204,8 @@ extension AddVariasiItem on ItemVariasiStokContainer {
       child: MaterialButton(
         minWidth: 1,
         onPressed: onPressed,
-        splashColor: Colors.grey.shade300,
-        child: Icon(
-          icon,
-          size: 16,
-          color: Colors.black87,
-        ),
+        splashColor: AppTheme.lightGrey,
+        child: Icon(icon, size: 16, color: AppTheme.blackColor87),
       ),
     );
   }
@@ -212,9 +218,12 @@ extension AddVariasiItem on ItemVariasiStokContainer {
           padding: const EdgeInsets.symmetric(horizontal: 8),
           margin: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(10), topLeft: Radius.circular(10)),
-              border: Border.all(color: Colors.grey.shade300)),
+            borderRadius: const BorderRadius.only(
+              topRight: Radius.circular(10),
+              topLeft: Radius.circular(10),
+            ),
+            border: Border.all(color: AppTheme.lightGrey),
+          ),
           child: IntrinsicHeight(
             child: Row(
               children: [
@@ -223,14 +232,14 @@ extension AddVariasiItem on ItemVariasiStokContainer {
                   child: Text(
                     "Variasi Warna \n"
                     "${controller.noItem} ${controller.namaItem}",
-                    style: const TextStyle(
-                      color: Colors.black,
+                    style: TextStyle(
+                      color: AppTheme.blackColor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 VerticalDivider(
-                  color: Colors.grey.shade300,
+                  color: AppTheme.lightGrey,
                   endIndent: 2,
                   indent: 2,
                 ),
@@ -239,7 +248,7 @@ extension AddVariasiItem on ItemVariasiStokContainer {
                   child: FormInputTextMin(
                     title: "Qty",
                     txtcontroller: controller.fieldTotalVariasi,
-                    borderColors: Colors.grey.shade300,
+                    borderColors: AppTheme.lightGrey,
                     textInputType: TextInputType.number,
                     txtEnable: false,
                     txtLine: 1,
@@ -268,42 +277,47 @@ extension AddVariasiItem on ItemVariasiStokContainer {
           ),
         ),
         GestureDetector(
-          onTap: (){
+          onTap: () {
             DialogManager().dialogROP();
           },
           child: Container(
             width: Get.size.width,
             margin: const EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-                border: Border.all(color: Colors.grey.shade300)),
-            child: const Padding(
+              borderRadius: const BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10),
+              ),
+              border: Border.all(color: AppTheme.lightGrey),
+            ),
+            child: Padding(
               padding: EdgeInsets.all(8.0),
-              child: Text("Ketuk untuk lihat detail rumus ROP",
+              child: Text(
+                "Ketuk untuk lihat detail rumus ROP",
                 style: TextStyle(
-                    fontSize: 11,
-                    color: Colors.orange,
-                    height: 1.4,
-                  ),)
-
+                  fontSize: 11,
+                  color: AppTheme.orangeColor,
+                  height: 1.4,
+                ),
+              ),
             ),
           ),
         ),
         controller.variasiForms.isNotEmpty
             ? ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: controller.variasiForms.length,
-                itemBuilder: (context, index) {
-                  return containerVariasi(index);
-                })
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: controller.variasiForms.length,
+              itemBuilder: (context, index) {
+                return containerVariasi(index);
+              },
+            )
             : const Center(
-                child: Text(
-                  "Masukkan jumlah variasi yang ingin ditambahkan",
-                  textAlign: TextAlign.center,
-                ),
-              )
+              child: Text(
+                "Masukkan jumlah variasi yang ingin ditambahkan",
+                textAlign: TextAlign.center,
+              ),
+            ),
       ],
     );
   }

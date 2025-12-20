@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_keluar/controller/revisi_stock_keluar_controller.dart';
 import '../../../../core/database/database_helper/database_helper.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 import '../../menu_laporan/data/stok_keluar_model.dart';
 
@@ -215,14 +216,14 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
       await snackBar.onShowSnacbarMessage(
         title: "Perhatian",
         content: "Stok nomor variasi $noItemWarna menipis (di bawah ROP).",
-        colors: Colors.deepOrange,
+        colors: AppTheme.deepOrangeColor,
         position: SnackPosition.BOTTOM,
       );
     } else {
       await snackBar.onShowSnacbarMessage(
         title: "Info",
         content: "Stok nomor variasi $noItemWarna telah diperbarui menjadi $stokBaru.",
-        colors: Colors.green,
+        colors: AppTheme.greenColor,
         position: SnackPosition.BOTTOM,
       );
     }

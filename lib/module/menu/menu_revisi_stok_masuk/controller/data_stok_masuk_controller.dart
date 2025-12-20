@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_masuk/controller/revisi_stock_masuk_controller.dart';
 import '../../../../core/database/database_helper/database_helper.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 import '../../menu_laporan/data/stok_masuk_model.dart';
 
@@ -216,7 +217,7 @@ WHERE p.no_permintaan_masuk = ? AND p.status_masuk = 0
         result.first['isDeleted'] == 0
             ? "Jumlah Stok nomor variasi $noItemWarna diubah menjadi $stokBaru"
             : "Perubahan disimpan",
-        colors: Colors.green,
+        colors: AppTheme.greenColor,
         position: SnackPosition.BOTTOM,
       );
     }

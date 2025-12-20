@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/controller/add_variasi_only_controller.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/controller/item_variasi_edit_controller.dart';
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/dialog_manager.dart';
 import '../../../../../core/util_manager/number_formatter.dart';
 import '../../data/stok_grid_model.dart';
@@ -16,14 +17,14 @@ extension GridItemStok on ItemVariasiStokContainer {
   }) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey.shade50,
+        color: AppTheme.greyColor.shade50,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       child: GestureDetector(
         onTap: () {
           onTap != null ? onTap() : {};
         },
-        child: Icon(icon, color: iconColor ?? Colors.black),
+        child: Icon(icon, color: iconColor ?? AppTheme.blackColor),
       ),
     );
   }
@@ -91,7 +92,7 @@ extension GridItemStok on ItemVariasiStokContainer {
                         const SizedBox(width: 8),
                         customIconButton(
                           icon: Icons.delete,
-                          iconColor: Colors.red,
+                          iconColor: AppTheme.redColor,
                           onTap: () {
                             if(Get.isSnackbarOpen){
                               return;
@@ -127,10 +128,10 @@ extension GridItemStok on ItemVariasiStokContainer {
     return Card(
       color:
           item.jumlah == 0
-              ? Colors.grey.shade300
+              ? AppTheme.lightGrey
               : (item.jumlah ?? 0) < (item.rop ?? 0)
               ? Colors.yellow
-              : Colors.white,
+              : AppTheme.whiteColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 3,
       child: Padding(
@@ -164,7 +165,7 @@ extension GridItemStok on ItemVariasiStokContainer {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
-        border: Border.all(width: 1.0, color: Colors.grey.shade300),
+        border: Border.all(width: 1.0, color: AppTheme.lightGrey),
         borderRadius: const BorderRadius.all(Radius.circular(8)),
       ),
       child: Row(
@@ -191,9 +192,9 @@ extension GridItemStok on ItemVariasiStokContainer {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                color: Colors.black,
+                color: AppTheme.blackColor,
               ),
-              child: const Icon(Icons.qr_code, color: Colors.white, size: 20),
+              child: Icon(Icons.qr_code, color: AppTheme.whiteColor, size: 20),
             ),
           ),
         ],

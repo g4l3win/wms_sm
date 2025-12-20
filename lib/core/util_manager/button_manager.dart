@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'app_theme.dart';
+
 class Button {
   static Widget button({
     IconData? icon,
@@ -7,43 +9,37 @@ class Button {
     Function? function,
     Color? color,
     Color? fontColor,
-    Color? iconColor
+    Color? iconColor,
   }) {
     return ElevatedButton(
-        onPressed: () => function != null ? function() : {},
-        style: ElevatedButton.styleFrom(
-          backgroundColor: color ?? Colors.black,
-          shadowColor: Colors.transparent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-            side: const BorderSide(
-              color: Colors.grey,
-              width: 1,
-            ),
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      onPressed: () => function != null ? function() : {},
+      style: ElevatedButton.styleFrom(
+        backgroundColor: color ?? AppTheme.blackColor,
+        shadowColor: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+          side: BorderSide(color: AppTheme.greyColor, width: 1),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            icon !=null?
-            Icon(
-              icon,
-              color: iconColor ?? Colors.black,
-            ) : const SizedBox.shrink(),
-            // Expanded(
-            //   child:
-              Text(
-                label,
-                style: TextStyle(fontSize: 12, color: fontColor ?? Colors.white,),
-                textAlign: TextAlign.center,
-              ),
-           // ),
-          ],
-        ));
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          icon != null
+              ? Icon(icon, color: iconColor ?? AppTheme.blackColor)
+              : const SizedBox.shrink(),
+
+          Text(
+            label,
+            style: TextStyle(fontSize: 12, color: fontColor ?? AppTheme.whiteColor),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
   }
 
-    static Widget bottomActionButton({
+  static Widget bottomActionButton({
     Function()? onTap,
     required IconData icon,
     required String actionText,
@@ -57,14 +53,9 @@ class Button {
           child: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color:
-              isActive ? Colors.black : Colors.white,
-              border: isActive
-                  ? null
-                  : Border.all(
-                width: 1,
-                color: Colors.grey,
-              ),
+              color: isActive ? AppTheme.blackColor : AppTheme.whiteColor,
+              border:
+                  isActive ? null : Border.all(width: 1, color: AppTheme.greyColor),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Center(
@@ -73,17 +64,17 @@ class Button {
                 children: [
                   Icon(
                     icon,
-                    color: isActive ? Colors.white : Colors.grey,
+                    color: isActive ? AppTheme.whiteColor : AppTheme.greyColor,
                     size: 22,
                   ),
                   SizedBox(width: 8),
                   Text(
                     actionText,
                     style: TextStyle(
-                      color: isActive ? Colors.white : Colors.grey,
+                      color: isActive ? AppTheme.whiteColor : AppTheme.greyColor,
                       fontWeight: FontWeight.bold,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

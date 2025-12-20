@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_kategori/view/component/add_category.dart';
 import 'package:wms_sm/module/menu/menu_kategori/view/component/edit_category.dart';
 import 'package:wms_sm/module/menu/menu_kategori/view/component/list_category_container.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/appbar_manager.dart';
 import '../../../../core/util_manager/button_manager.dart';
 import '../../../../core/util_manager/dialog_manager.dart';
@@ -58,7 +59,7 @@ class KategoriStokContainer extends GetView<KategoriStokController> {
             controller.onBack();
           },
           child: Scaffold(
-              backgroundColor: Colors.white,
+              backgroundColor: AppTheme.whiteColor,
               appBar: AppBarManager.appbarMenu(
                   onTap: () {
                     controller.onBack();

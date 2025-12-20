@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../item_variasi_stok_container.dart';
 
@@ -14,7 +15,7 @@ extension AddItemStok on ItemVariasiStokContainer {
           FormInputText(
             title: "Nomor Stok",
             txtcontroller: controller.fieldNoItem,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: true,
             txtLine: 1,
@@ -24,7 +25,7 @@ extension AddItemStok on ItemVariasiStokContainer {
           FormInputText(
             title: "Nama Barang",
             txtcontroller: controller.fieldNamaItem,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: true,
             txtLine: 1,
@@ -35,11 +36,11 @@ extension AddItemStok on ItemVariasiStokContainer {
           RichText(
             text: TextSpan(
               text: "Kategori",
-              style: const TextStyle(color: Colors.black, fontSize: 14),
+              style: TextStyle(color: AppTheme.blackColor, fontSize: 14),
               children:   [
                 TextSpan(
                   text: ' *',
-                  style: TextStyle(color: Colors.red),
+                  style: TextStyle(color: AppTheme.redColor),
                 ),
               ]
 
@@ -64,11 +65,11 @@ extension AddItemStok on ItemVariasiStokContainer {
           RichText(
             text: TextSpan(
                 text: "Unit",
-                style: const TextStyle(color: Colors.black, fontSize: 14),
+                style: TextStyle(color: AppTheme.blackColor, fontSize: 14),
                 children:   [
                   TextSpan(
                     text: ' *',
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(color: AppTheme.redColor),
                   ),
                 ]
 

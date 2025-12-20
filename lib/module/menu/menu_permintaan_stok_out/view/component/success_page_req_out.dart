@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../req_stock_out_container.dart';
 
@@ -12,10 +13,10 @@ extension SuccessPageReqIn on RequestStockOutContainer {
         children: [
           const SizedBox(height: 20),
 
-          const CircleAvatar(
+          CircleAvatar(
             radius: 40,
-            backgroundColor: Colors.black,
-            child: Icon(Icons.check, color: Colors.white, size: 40),
+            backgroundColor: AppTheme.blackColor,
+            child: Icon(Icons.check, color: AppTheme.whiteColor, size: 40),
           ),
 
           const SizedBox(height: 16),
@@ -24,9 +25,9 @@ extension SuccessPageReqIn on RequestStockOutContainer {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 4),
-          const Text(
+          Text(
             "Permintaan Stok Keluar Berhasil Dibuat",
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: AppTheme.greyColor),
           ),
 
           const SizedBox(height: 24),
@@ -59,7 +60,7 @@ extension SuccessPageReqIn on RequestStockOutContainer {
                 margin: const EdgeInsets.only(bottom: 12),
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade300),
+                  border: Border.all(color: AppTheme.lightGrey),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Column(

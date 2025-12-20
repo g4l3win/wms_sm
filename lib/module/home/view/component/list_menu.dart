@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../navigation/routes.dart';
 import '../../data/m_menu_description.dart';
 import '../home_page.dart';
@@ -19,7 +20,7 @@ Widget cardInfo(BuildContext context, String title, String totalQTY,
           padding: const EdgeInsets.all(8),
           margin: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey, width: 0.3),
+            border: Border.all(color: AppTheme.greyColor, width: 0.3),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Column(
@@ -33,15 +34,15 @@ Widget cardInfo(BuildContext context, String title, String totalQTY,
                     children: [
                       Text(
                         title,
-                        style: const TextStyle(
-                          color: Colors.grey,
+                        style: TextStyle(
+                          color: AppTheme.greyColor,
                           fontSize: 10,
                         ),
                       ),
                       Text(
                         totalQTY,
-                        style: const TextStyle(
-                            color: Colors.black,
+                        style:TextStyle(
+                            color: AppTheme.blackColor,
                             fontSize: 15,
                             fontWeight: FontWeight.bold),
                       )
@@ -50,8 +51,8 @@ Widget cardInfo(BuildContext context, String title, String totalQTY,
                 ],
               ),
               Text(description,
-                  style: const TextStyle(
-                    color: Colors.grey,
+                  style: TextStyle(
+                    color: AppTheme.greyColor,
                     fontSize: 10,
                   ))
             ],
@@ -116,17 +117,17 @@ Widget cardInfo(BuildContext context, String title, String totalQTY,
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 5),
-        decoration: const BoxDecoration(
-            color: Colors.white,
+        decoration: BoxDecoration(
+            color: AppTheme.whiteColor,
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            border: Border(bottom: BorderSide(color: Colors.grey))),
+            border: Border(bottom: BorderSide(color: AppTheme.greyColor))),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
         child: Row(
           children: [
             Container(
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
+                    color: AppTheme.lightGrey,
                     borderRadius: BorderRadius.circular(20)),
                 child: Icon(
                   item.icon,
@@ -149,7 +150,7 @@ Widget cardInfo(BuildContext context, String title, String totalQTY,
                   ),
                   Text(
                     item.subtitle,
-                    style: const TextStyle(fontSize: 12, color: Colors.grey),
+                    style: TextStyle(fontSize: 12, color: AppTheme.greyColor),
                   ),
                   const SizedBox(
                     height: 5,

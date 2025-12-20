@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_lokasi/controller/crud_template_controller.dart';
 import 'package:wms_sm/module/menu/menu_lokasi/view/component/daftar_stock_location.dart';
 import 'package:wms_sm/module/menu/menu_lokasi/view/component/list_component.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/appbar_manager.dart';
 import '../../../../core/util_manager/dialog_manager.dart';
 import '../controller/menu_template_controller.dart';
@@ -31,7 +32,7 @@ class LocationContainer extends GetView<LocationController> {
 
     return Obx(
       () => Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.whiteColor,
         appBar: AppBarManager.appbarMenu(
           onTap: () {
             controller.getBack();

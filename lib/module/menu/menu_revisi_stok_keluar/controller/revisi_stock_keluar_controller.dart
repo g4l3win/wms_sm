@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_keluar/controller/data_stok_keluar_controller.dart';
 import '../../../../core/database/database_helper/database_helper.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 import '../../../home/controller/home_controller.dart';
 import '../../../qr_scanner/view/qr_scanner_page.dart';
@@ -97,7 +98,7 @@ class RevisiStockKeluarController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal mendapatkan scan kode permintaan",
         content: "error $e",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     }
@@ -120,7 +121,7 @@ class RevisiStockKeluarController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal mendapatkan scan",
         content: "error $e",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     }
@@ -136,14 +137,14 @@ class RevisiStockKeluarController extends GetxController {
         builder: (context, child){
           return Theme(
             data: Theme.of(context).copyWith(
-              colorScheme: const ColorScheme.light(
-                primary: Colors.black, // header background color
-                onPrimary: Colors.white, // header text color
-                onSurface: Colors.black, // body text color
+              colorScheme: ColorScheme.light(
+                primary: AppTheme.blackColor, // header background color
+                onPrimary: AppTheme.whiteColor, // header text color
+                onSurface: AppTheme.blackColor, // body text color
               ),
               textButtonTheme: TextButtonThemeData(
                 style: TextButton.styleFrom(
-                  foregroundColor: Colors.black, // button text color
+                  foregroundColor: AppTheme.blackColor, // button text color
                 ),
               ),
             ),
@@ -233,7 +234,7 @@ class RevisiStockKeluarController extends GetxController {
         SnackBarManager().onShowSnacbarMessage(
           title: "Validasi gagal",
           content: validationMessage,
-          colors: Colors.deepOrange,
+          colors: AppTheme.deepOrangeColor,
           position: SnackPosition.TOP,
         );
         return;
@@ -259,7 +260,7 @@ class RevisiStockKeluarController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal",
         content: "Terjadi kesalahan saat meKeluarkan data stok Keluar",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.TOP,
       );
     }
@@ -298,7 +299,7 @@ class RevisiStockKeluarController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Sukses",
         content: "Detail stok Keluar berhasil ditambahkan",
-        colors: Colors.green,
+        colors: AppTheme.greenColor,
         position: SnackPosition.BOTTOM,
       );
     } catch (e) {
@@ -307,7 +308,7 @@ class RevisiStockKeluarController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal",
         content: "Gagal meKeluarkan data detail stok Keluar",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     }

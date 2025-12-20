@@ -4,6 +4,7 @@ import 'package:wms_sm/module/home/view/component/list_menu.dart';
 import 'package:wms_sm/module/home/view/component/profile_page.dart';
 import 'package:wms_sm/module/home/view/home_appbar.dart';
 import 'package:wms_sm/module/home/view/home_navbar.dart';
+import '../../../core/util_manager/app_theme.dart';
 import '../controller/home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -29,22 +30,22 @@ class HomePage extends GetView<HomeController> {
         },
         child:
       Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.whiteColor,
         appBar: homeAppbar(),
         body: controller.isLoading.value
-            ? const Column(
+            ? Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: CircularProgressIndicator(color: Colors.grey),
+              child: CircularProgressIndicator(color: AppTheme.greyColor),
             ),
             SizedBox(height: 10),
             Text(
               "Fetching Data . . .",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.grey,
+                color: AppTheme.greyColor,
               ),
             ),
           ],

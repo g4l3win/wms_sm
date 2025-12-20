@@ -7,6 +7,7 @@ import 'package:wms_sm/module/menu/menu_revisi_stok_keluar/view/component/stok_k
 import 'package:wms_sm/module/menu/menu_revisi_stok_keluar/view/component/stok_keluar_item_page.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_keluar/view/component/sukses_stok_keluar.dart';
 
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/appbar_manager.dart';
 import '../../../../core/util_manager/button_manager.dart';
 import '../../../../core/util_manager/dialog_manager.dart';
@@ -24,7 +25,7 @@ class RevisiStockKeluarContainer extends GetView<RevisiStockKeluarController> {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
-              border: Border.all(color: Colors.grey.shade300),
+              border: Border.all(color: AppTheme.lightGrey),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.shade800,
@@ -34,12 +35,12 @@ class RevisiStockKeluarContainer extends GetView<RevisiStockKeluarController> {
               ],
             ),
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: const Row(
+            child: Row(
               children: [
                 Text(
                   "Riwayat",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: AppTheme.whiteColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
                   ),
@@ -127,7 +128,7 @@ class RevisiStockKeluarContainer extends GetView<RevisiStockKeluarController> {
       if (controller.pageIdx.value == 0) {
         return AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.whiteColor,
           elevation: 0,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -137,12 +138,12 @@ class RevisiStockKeluarContainer extends GetView<RevisiStockKeluarController> {
                 child: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.grey),
+                    border: Border.all(width: 1, color: AppTheme.greyColor),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Icon(
+                  child:  Icon(
                     Icons.arrow_back_rounded,
-                    color: Colors.black,
+                    color: AppTheme.blackColor,
                     size: 22,
                   ),
                 ),
@@ -150,8 +151,8 @@ class RevisiStockKeluarContainer extends GetView<RevisiStockKeluarController> {
               const SizedBox(width: 10),
               Text(
                 "Cari Permintaan Stok Keluar",
-                style: const TextStyle(
-                  color: Colors.black,
+                style: TextStyle(
+                  color: AppTheme.blackColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
@@ -204,7 +205,7 @@ class RevisiStockKeluarContainer extends GetView<RevisiStockKeluarController> {
           controller.onBack();
         },
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.whiteColor,
           appBar: appBarStok(),
           body: SingleChildScrollView(
             child: Stack(

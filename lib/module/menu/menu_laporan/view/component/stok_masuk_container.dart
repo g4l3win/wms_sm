@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wms_sm/module/menu/menu_laporan/view/component/stok_keluar_container.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../laporan_container.dart';
 
@@ -15,7 +16,7 @@ extension StokMasukContainer on LaporanContainer {
       margin: const EdgeInsets.only(bottom: 4),
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(color: AppTheme.lightGrey),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -55,7 +56,7 @@ extension StokMasukContainer on LaporanContainer {
       width: double.infinity,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade400),
+        border: Border.all(color: AppTheme.greyColor400),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../revisi_stock_masuk_container.dart';
 
@@ -13,10 +14,10 @@ extension SuccessStokMasuk on RevisiStockMasukContainer {
         children: [
           const SizedBox(height: 20),
           // Icon sukses
-          const CircleAvatar(
+          CircleAvatar(
             radius: 40,
-            backgroundColor: Colors.black,
-            child: Icon(Icons.check, color: Colors.white, size: 40),
+            backgroundColor: AppTheme.blackColor,
+            child: Icon(Icons.check, color: AppTheme.whiteColor, size: 40),
           ),
           const SizedBox(height: 16),
           const Text(
@@ -64,7 +65,7 @@ extension SuccessStokMasuk on RevisiStockMasukContainer {
                 margin: const EdgeInsets.only(bottom: 12),
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade300),
+                  border: Border.all(color: AppTheme.lightGrey),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -87,7 +88,7 @@ extension SuccessStokMasuk on RevisiStockMasukContainer {
                           Text(
                             "${item.jumlahMasuk.toString()} ${item.unit ??
                                 "-"}",
-                            style: const TextStyle(color: Colors.black),
+                            style:TextStyle(color: AppTheme.blackColor),
                           ),
                         ],
                       ),

@@ -1,8 +1,8 @@
 import 'dart:developer';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_keluar/controller/data_stok_keluar_controller.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_keluar/controller/revisi_stock_keluar_controller.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 import '../../menu_laporan/data/stok_keluar_model.dart';
 
@@ -24,7 +24,7 @@ extension RiwayatStokKeluarController on RevisiStockKeluarController {
       SnackBarManager().onShowSnacbarMessage(
           title: "Gagal mendapatkan scan",
           content: "error $e",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.BOTTOM);
     }
   }
@@ -58,7 +58,7 @@ extension RiwayatStokKeluarController on RevisiStockKeluarController {
       SnackBarManager().onShowSnacbarMessage(
           title: "Hapus berhasil",
           content: "Data berhasil dihapus",
-          colors: Colors.green,
+          colors: AppTheme.greenColor,
           position: SnackPosition.BOTTOM);
       isLoading(false);
     } catch (e) {
@@ -67,7 +67,7 @@ extension RiwayatStokKeluarController on RevisiStockKeluarController {
       SnackBarManager().onShowSnacbarMessage(
           title: "Error hapus",
           content: "Gagal melakukan hapus data",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.BOTTOM);
     }
   }

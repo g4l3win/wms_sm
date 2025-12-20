@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/view/component/bottom_sheet_image_picker.dart';
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../item_variasi_stok_container.dart';
 
@@ -14,11 +15,12 @@ extension EditItemStok on ItemVariasiStokContainer {
           RichText(
             text: TextSpan(
                 text: "Upload Gambar",
-                style: const TextStyle(color: Colors.black, fontWeight:FontWeight.bold, ),
+                style: TextStyle(color: AppTheme.blackColor,
+                    fontWeight:FontWeight.bold),
                 children:   [
                   TextSpan(
                     text: ' *',
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(color: AppTheme.redColor),
                   ),
                 ]
 
@@ -35,7 +37,7 @@ extension EditItemStok on ItemVariasiStokContainer {
               width: 150,
               height: 150,
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
+                border: Border.all(color: AppTheme.greyColor),
                 borderRadius: BorderRadius.circular(8),
                 color: Colors.grey[200],
               ),
@@ -66,7 +68,7 @@ extension EditItemStok on ItemVariasiStokContainer {
           FormInputText(
             title: "Nomor Stok",
             txtcontroller: controller.fieldEditNoItem,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: false,
             txtLine: 1,
@@ -75,7 +77,7 @@ extension EditItemStok on ItemVariasiStokContainer {
           FormInputText(
             title: "Nama Barang",
             txtcontroller: controller.fieldEditNamaItem,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: true,
             txtLine: 1,
@@ -85,7 +87,7 @@ extension EditItemStok on ItemVariasiStokContainer {
           FormInputText(
             title: "Jumlah Stok",
             txtcontroller: controller.fieldEditJumlahStok,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.number,
             txtEnable: true,
             txtLine: 1,
@@ -94,11 +96,11 @@ extension EditItemStok on ItemVariasiStokContainer {
           RichText(
             text: TextSpan(
                 text: "Kategori",
-                style: const TextStyle(color: Colors.black),
+                style: TextStyle(color: AppTheme.blackColor),
                 children:   [
                   TextSpan(
                     text: ' *',
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(color: AppTheme.redColor),
                   ),
                 ]
 
@@ -112,7 +114,7 @@ extension EditItemStok on ItemVariasiStokContainer {
           FormInputText(
             title: "No Variasi Warna",
             txtcontroller: controller.fieldEditNoItemWarna,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.number,
             txtEnable: false,
             txtLine: 1,
@@ -125,7 +127,7 @@ extension EditItemStok on ItemVariasiStokContainer {
                 child: FormInputTextMin(
                   title: "Variasi warna",
                   txtcontroller: controller.fieldEditVariasiWarna,
-                  borderColors: Colors.grey.shade300,
+                  borderColors: AppTheme.lightGrey,
                   textInputType: TextInputType.text,
                   txtEnable: true,
                   txtLine: 1,
@@ -138,7 +140,7 @@ extension EditItemStok on ItemVariasiStokContainer {
                 child: FormInputTextMin(
                   title: "Harga",
                   txtcontroller: controller.fieldEditHarga,
-                  borderColors: Colors.grey.shade300,
+                  borderColors: AppTheme.lightGrey,
                   textInputType: TextInputType.number,
                   txtEnable: true,
                   txtLine: 1,
@@ -162,11 +164,11 @@ extension EditItemStok on ItemVariasiStokContainer {
           RichText(
             text: TextSpan(
                 text: "Unit",
-                style: const TextStyle(color: Colors.black),
+                style: TextStyle(color: AppTheme.blackColor),
                 children:   [
                   TextSpan(
                     text: ' *',
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(color: AppTheme.redColor),
                   ),
                 ]
 

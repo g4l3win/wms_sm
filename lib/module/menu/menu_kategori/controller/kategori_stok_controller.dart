@@ -6,6 +6,7 @@ import 'package:sqflite/sqflite.dart';
 
 import '../../../../core/database/data/m_kategori_stok.dart';
 import '../../../../core/database/database_helper/database_helper.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/dialog_manager.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 
@@ -122,7 +123,7 @@ class KategoriStokController extends GetxController{
         SnackBarManager().onShowSnacbarMessage(
           title: "Validasi Gagal",
           content: "Mohon lengkapi form kategori",
-          colors: Colors.deepOrange,
+          colors: AppTheme.deepOrangeColor,
           position: SnackPosition.TOP,
         );
         return;
@@ -141,7 +142,7 @@ class KategoriStokController extends GetxController{
       SnackBarManager().onShowSnacbarMessage(
         title: "Berhasil",
         content: "Kategori berhasil diperbarui",
-        colors: Colors.green,
+        colors: AppTheme.greenColor,
         position: SnackPosition.TOP,
       );
     } catch (e) {
@@ -150,7 +151,7 @@ class KategoriStokController extends GetxController{
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal edit",
         content: e.toString(),
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.TOP,
       );
     }
@@ -184,7 +185,7 @@ class KategoriStokController extends GetxController{
         SnackBarManager().onShowSnacbarMessage(
           title: "Validasi Gagal",
           content: "Mohon periksa kembali form kategori",
-          colors: Colors.deepOrange,
+          colors: AppTheme.deepOrangeColor,
           position: SnackPosition.TOP,
         );
         return;
@@ -203,7 +204,7 @@ class KategoriStokController extends GetxController{
       SnackBarManager().onShowSnacbarMessage(
         title: "Berhasil",
         content: "Kategori baru berhasil ditambahkan",
-        colors: Colors.green,
+        colors: AppTheme.greenColor,
         position: SnackPosition.TOP,
       );
     } catch (e) {
@@ -212,7 +213,7 @@ class KategoriStokController extends GetxController{
       SnackBarManager().onShowSnacbarMessage(
         title: "Error Simpan",
         content: e.toString(),
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.TOP,
       );
     }
@@ -237,7 +238,7 @@ class KategoriStokController extends GetxController{
           return SnackBarManager().onShowSnacbarMessage(
               title: "Berhasil",
               content: "Kategori $id berhasil dihapus",
-              colors: Colors.green,
+              colors: AppTheme.greenColor,
               position: SnackPosition.TOP);
         });
       } else {
@@ -247,7 +248,7 @@ class KategoriStokController extends GetxController{
             title: "Hapus berhasil",
             content:
                 "Stok $id Masih ada item stok yang memiliki kategori yang ingin Anda dihapus",
-            colors: Colors.orange,
+            colors: AppTheme.orangeColor,
             position: SnackPosition.TOP);
       }
     } catch (e) {
@@ -256,7 +257,7 @@ class KategoriStokController extends GetxController{
       SnackBarManager().onShowSnacbarMessage(
           title: "Gagal hapus",
           content: e.toString(),
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP);
     }
   }

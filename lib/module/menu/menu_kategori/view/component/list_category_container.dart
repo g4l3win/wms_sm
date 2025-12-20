@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../core/database/data/m_kategori_stok.dart';
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/dialog_manager.dart';
 import '../kategori_stok_container.dart';
 
@@ -18,15 +19,15 @@ extension ListKategoriContainer on KategoriStokContainer {
           borderRadius: const BorderRadius.all(Radius.circular(10)),
           color: Colors.grey.shade200,
         ),
-        child: Icon(icon, color: iconColor ?? Colors.black),
+        child: Icon(icon, color: iconColor ?? AppTheme.blackColor),
       ),
     );
   }
 
   Widget listKategoriStok(KategoriStok item) {
     return Container(
-      decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: Colors.grey)),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: AppTheme.greyColor)),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: Row(
@@ -40,7 +41,7 @@ extension ListKategoriContainer on KategoriStokContainer {
                 Text(item.NamaKategori, style: const TextStyle(fontSize: 16)),
                 Text(
                   item.NoKategori,
-                  style: const TextStyle(fontSize: 12, color: Colors.grey),
+                  style: TextStyle(fontSize: 12, color: AppTheme.greyColor),
                 ),
                 const SizedBox(height: 5),
               ],
@@ -49,7 +50,7 @@ extension ListKategoriContainer on KategoriStokContainer {
           const Spacer(),
           buttonList(
             icon: Icons.edit,
-            iconColor: Colors.green,
+            iconColor: AppTheme.greenColor,
             onTap: () {
               controller.pageIdx.value = 2;
               controller.fieldEditNoKategori.text = item.NoKategori;
@@ -60,7 +61,7 @@ extension ListKategoriContainer on KategoriStokContainer {
           const SizedBox(width: 4),
           buttonList(
             icon: Icons.delete,
-            iconColor: Colors.red,
+            iconColor: AppTheme.redColor,
             onTap: () {
               DialogManager().dialogPerhatian(
                 "Perhatian",

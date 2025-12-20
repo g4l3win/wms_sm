@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../../data/m_permintaan_keluar.dart';
 import '../laporan_req_container.dart';
@@ -30,7 +31,7 @@ extension RequestKeluarContainer on LaporanReqContainer{
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(color: AppTheme.lightGrey),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(

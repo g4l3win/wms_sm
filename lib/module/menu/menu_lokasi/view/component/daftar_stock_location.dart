@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/number_formatter.dart';
 import '../../../menu_item_variasi_stok/data/stok_grid_model.dart';
 import '../location_container.dart';
@@ -56,10 +57,10 @@ extension StockInLocation on LocationContainer{
       Card(
       color:
       item.jumlah == 0
-          ? Colors.grey.shade300
+          ? AppTheme.lightGrey
           : (item.jumlah ?? 0) < (item.rop ?? 0)
           ? Colors.yellow
-          : Colors.white,
+          : AppTheme.whiteColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 3,
       child: Padding(

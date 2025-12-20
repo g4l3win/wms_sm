@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../revisi_stock_keluar_container.dart';
 
@@ -12,10 +13,10 @@ extension SuccessStokKeluar on RevisiStockKeluarContainer {
         children: [
           const SizedBox(height: 20),
           // Icon sukses
-          const CircleAvatar(
+          CircleAvatar(
             radius: 40,
-            backgroundColor: Colors.black,
-            child: Icon(Icons.check, color: Colors.white, size: 40),
+            backgroundColor: AppTheme.blackColor,
+            child: Icon(Icons.check, color: AppTheme.whiteColor, size: 40),
           ),
           const SizedBox(height: 16),
           const Text(
@@ -23,9 +24,9 @@ extension SuccessStokKeluar on RevisiStockKeluarContainer {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 4),
-          const Text(
+          Text(
             "Data stok keluar berhasil ditambahkan",
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: AppTheme.greyColor ),
           ),
           const SizedBox(height: 24),
 
@@ -64,7 +65,7 @@ extension SuccessStokKeluar on RevisiStockKeluarContainer {
                 margin: const EdgeInsets.only(bottom: 12),
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade300),
+                  border: Border.all(color: AppTheme.lightGrey),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -87,7 +88,7 @@ extension SuccessStokKeluar on RevisiStockKeluarContainer {
                           Text(
                             "${stock.jumlahKeluar.toString()} ${stock.unit ??
                                 "-"}",
-                            style: const TextStyle(color: Colors.black),
+                            style: TextStyle(color: AppTheme.blackColor),
                           ),
                         ],
                       ),

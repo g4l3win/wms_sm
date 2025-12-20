@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/button_manager.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../revisi_stock_keluar_container.dart';
@@ -31,7 +32,7 @@ extension StokKeluarDetailPage on RevisiStockKeluarContainer {
             txtReadonly: false,
             txtLine: 1,
             txtEnable: true,
-            borderColors: Colors.black,
+            borderColors: AppTheme.blackColor,
             txtcontroller: controller.fieldNoStokKeluar,
             isMandatory: true,
           ),
@@ -44,7 +45,7 @@ extension StokKeluarDetailPage on RevisiStockKeluarContainer {
                   txtReadonly: true,
                   txtLine: 1,
                   txtEnable: true,
-                  borderColors: Colors.black,
+                  borderColors: AppTheme.blackColor,
                   txtcontroller: controller.fieldTanggal,
                   isMandatory: true,
                 ),
@@ -55,8 +56,8 @@ extension StokKeluarDetailPage on RevisiStockKeluarContainer {
                   const SizedBox(height: 20),
                   Button.button(
                     label: "Pilih Tanggal",
-                    color: Colors.black,
-                    fontColor: Colors.white,
+                    color: AppTheme.blackColor,
+                    fontColor: AppTheme.whiteColor,
                     function: () {
                       controller.onDatePick(context: context);
                     },
@@ -71,7 +72,7 @@ extension StokKeluarDetailPage on RevisiStockKeluarContainer {
             txtReadonly: false,
             txtLine: 1,
             txtEnable: true,
-            borderColors: Colors.black,
+            borderColors: AppTheme.blackColor,
             txtcontroller: controller.fieldKeterangan,
             isMandatory: true,
           ),

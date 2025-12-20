@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../revisi_stock_keluar_container.dart';
 
@@ -29,7 +30,7 @@ extension StokKeluarItemPage on RevisiStockKeluarContainer {
                     margin: const EdgeInsets.only(bottom: 12),
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade300),
+                      border: Border.all(color: AppTheme.lightGrey),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Column(
@@ -57,7 +58,7 @@ extension StokKeluarItemPage on RevisiStockKeluarContainer {
                           txtReadonly: false,
                           txtLine: 1,
                           txtEnable: true,
-                          borderColors: Colors.black,
+                          borderColors: AppTheme.blackColor,
                           txtcontroller:  controller.qtyRealControllers[index],
                           isMandatory: true,
                         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/button_manager.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../req_stock_out_container.dart';
@@ -23,9 +24,9 @@ extension FormPermintaanKeluar on RequestStockOutContainer{
                 txtReadonly: false,
                 txtLine: 1,
                 txtEnable: true,
-                borderColors: Colors.black,
-                hintColor: Colors.black,
-                enableBorderColor: Colors.black,
+                borderColors: AppTheme.blackColor,
+                hintColor: AppTheme.blackColor,
+                enableBorderColor: AppTheme.blackColor,
                 txtcontroller: textController,
                 isMandatory: true,
               ),
@@ -66,10 +67,10 @@ extension FormPermintaanKeluar on RequestStockOutContainer{
                     onTap: () {
                       controller.onDeleteScannedStok(index);
                     },
-                    child: const Icon(
+                    child: Icon(
                       Icons.delete,
                       size: 30,
-                      color: Colors.black,
+                      color: AppTheme.blackColor,
                     ),
                   ),
                 ],
@@ -94,15 +95,15 @@ extension FormPermintaanKeluar on RequestStockOutContainer{
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           height: MediaQuery.of(context).size.height * 0.3,
           width: double.infinity,
-          decoration: BoxDecoration(color: Colors.grey.shade100),
+          decoration: BoxDecoration(color: AppTheme.lighterGrey),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+               Text(
                 "Detail Permintaan Keluar",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: AppTheme.blackColor,
                 ),
               ),
               const SizedBox(height: 4),
@@ -116,7 +117,7 @@ extension FormPermintaanKeluar on RequestStockOutContainer{
           txtReadonly: false,
           txtLine: 1,
           txtEnable: true,
-          borderColors: Colors.black,
+          borderColors: AppTheme.blackColor,
           txtcontroller: controller.fieldNoStokKeluar,
           isMandatory: true,
         ),
@@ -129,7 +130,7 @@ extension FormPermintaanKeluar on RequestStockOutContainer{
                 txtReadonly: true,
                 txtLine: 1,
                 txtEnable: false,
-                borderColors: Colors.black,
+                borderColors: AppTheme.blackColor,
                 txtcontroller: controller.fieldTanggal,
                 isMandatory: true,
               ),
@@ -143,7 +144,7 @@ extension FormPermintaanKeluar on RequestStockOutContainer{
           txtReadonly: false,
           txtLine: 1,
           txtEnable: true,
-          borderColors: Colors.black,
+          borderColors: AppTheme.blackColor,
           txtcontroller: controller.fieldKeterangan,
           isMandatory: true,
         ),
@@ -167,9 +168,9 @@ extension FormPermintaanKeluar on RequestStockOutContainer{
           const SizedBox(height: 10),
           Button.button(
             label: "Pindai kode QR",
-            color: Colors.black,
+            color: AppTheme.blackColor,
             icon: Icons.qr_code,
-            fontColor: Colors.white,
+            fontColor: AppTheme.whiteColor,
             function: () {
               controller.onStartScanner();
             },

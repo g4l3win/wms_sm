@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/controller/item_variasi_edit_controller.dart';
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../item_variasi_stok_container.dart';
 
@@ -13,7 +14,7 @@ extension EditROPForm on ItemVariasiStokContainer {
           FormInputText(
             title: "Rata-rata permintaan per hari",
             txtcontroller: controller.fieldEditAvgDailyDemand,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: true,
             txtLine: 1,
@@ -26,7 +27,7 @@ extension EditROPForm on ItemVariasiStokContainer {
           FormInputText(
             title: "Lead Time (hari)",
             txtcontroller: controller.fieldEditLeadTime,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.number,
             txtEnable: true,
             txtLine: 1,
@@ -39,7 +40,7 @@ extension EditROPForm on ItemVariasiStokContainer {
           FormInputText(
             title: "Safety stock",
             txtcontroller: controller.fieldEditSS,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.number,
             txtEnable: true,
             txtLine: 1,
@@ -52,21 +53,21 @@ extension EditROPForm on ItemVariasiStokContainer {
           FormInputText(
             title: "ROP",
             txtcontroller: controller.fieldEditROP,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.number,
             txtEnable: false,
             txtLine: 1,
             txtReadonly: true,
             isMandatory: true,
           ),
-          const Text(
+          Text(
             "Bagian ini akan menampilkan hasil perhitungan ROP secara otomatis",
-            style: TextStyle(fontSize: 8, color: Colors.grey),
+            style: TextStyle(fontSize: 8, color: AppTheme.greyColor),
           ),
-          const Text(
+          Text(
             "Rumus ROP",
             style: TextStyle(
-              color: Colors.black,
+              color: AppTheme.blackColor,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -83,8 +84,8 @@ extension EditROPForm on ItemVariasiStokContainer {
               Expanded(
                 flex: 2,
                 child: RichText(
-                  text: const TextSpan(
-                    style: TextStyle(color: Colors.black, fontSize: 14),
+                  text: TextSpan(
+                    style: TextStyle(color: AppTheme.blackColor, fontSize: 14),
                     children: [
                       TextSpan(
                         text:
@@ -96,7 +97,7 @@ extension EditROPForm on ItemVariasiStokContainer {
                             "Average Daily Demand = jumlah rata-rata barang laku terjual dalam sehari\n",
                         style: TextStyle(
                           fontSize: 10,
-                          color: Colors.grey,
+                          color: AppTheme.greyColor,
                         ),
                       ),
                       TextSpan(
@@ -104,7 +105,7 @@ extension EditROPForm on ItemVariasiStokContainer {
                             "Lead Time = Waktu yang diperlukan untuk mengisi kembali stok\n",
                         style: TextStyle(
                           fontSize: 10,
-                          color: Colors.grey,
+                          color: AppTheme.greyColor,
                         ),
                       ),
                       TextSpan(
@@ -112,7 +113,7 @@ extension EditROPForm on ItemVariasiStokContainer {
                             "Safety Stock = Stok minimal yang harus tersedia di dalam gudang",
                         style: TextStyle(
                           fontSize: 10,
-                          color: Colors.grey,
+                          color: AppTheme.greyColor,
                         ),
                       ),
                     ],

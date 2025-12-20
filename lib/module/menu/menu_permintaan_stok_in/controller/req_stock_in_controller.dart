@@ -7,6 +7,7 @@ import 'package:sqflite/sqflite.dart';
 
 import '../../../../core/database/data/m_item_stok_model.dart';
 import '../../../../core/database/database_helper/database_helper.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 import '../../../home/controller/home_controller.dart';
 import '../../../qr_scanner/view/qr_scanner_page.dart';
@@ -85,7 +86,7 @@ class ReqStockInController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal mendapatkan scan kode item variasi warna",
         content: "error $e",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     }
@@ -133,7 +134,7 @@ class ReqStockInController extends GetxController {
           title: "Sukses",
           content:
               "Dapat data stok masuk ${data.namaItem} ${data.namaWarna} kode ${data.noItem} - ${data.noItemWarna}",
-          colors: Colors.green,
+          colors: AppTheme.greenColor,
           position: SnackPosition.BOTTOM,
         );
       } else {
@@ -141,7 +142,7 @@ class ReqStockInController extends GetxController {
           title: "Perhatian",
           content:
               "Data stok yang discan / dicari duplikat, perhatikan daftar stok yang sudah discan",
-          colors: Colors.orange,
+          colors: AppTheme.orangeColor,
           position: SnackPosition.BOTTOM,
         );
       }
@@ -198,7 +199,7 @@ class ReqStockInController extends GetxController {
         SnackBarManager().onShowSnacbarMessage(
           title: "Validasi gagal",
           content: validationMessage,
-          colors: Colors.deepOrange,
+          colors: AppTheme.deepOrangeColor,
           position: SnackPosition.BOTTOM,
         );
         return;
@@ -235,7 +236,7 @@ class ReqStockInController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal",
         content: "Gagal menyimpan permintaan stok masuk",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     } finally {

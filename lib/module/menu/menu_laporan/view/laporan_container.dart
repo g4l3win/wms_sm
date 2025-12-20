@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_laporan/view/component/stok_keluar_container.dart';
 import 'package:wms_sm/module/menu/menu_laporan/view/component/stok_masuk_container.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/appbar_manager.dart';
 import '../../../../core/util_manager/button_manager.dart';
 import '../../../../core/util_manager/dialog_manager.dart';
@@ -24,7 +25,7 @@ class LaporanContainer extends GetView<LaporanController> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
-                color: isSelected ? Colors.red.shade300 : Colors.grey,
+                color: isSelected ? Colors.red.shade300 : AppTheme.greyColor,
               ),
             ),
             child: Column(
@@ -65,7 +66,7 @@ class LaporanContainer extends GetView<LaporanController> {
                       vertical: 8,
                     ),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade400),
+                      border: Border.all(color: AppTheme.greyColor400),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(controller.selectedMonthYear.value),
@@ -75,8 +76,8 @@ class LaporanContainer extends GetView<LaporanController> {
                 Expanded(
                   child: Button.button(
                     label: "Terapkan Filter",
-                    color: Colors.black,
-                    fontColor: Colors.white,
+                    color: AppTheme.blackColor,
+                    fontColor: AppTheme.whiteColor,
                     function: () {
                       controller.onMonthYearPicker(context: context);
                     },
@@ -116,7 +117,7 @@ class LaporanContainer extends GetView<LaporanController> {
 
     return Obx(
       () => Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: AppTheme.whiteColor,
         appBar: AppBarManager.appbarMenu(menu: "Laporan"),
         body: SingleChildScrollView(
             child: Stack(

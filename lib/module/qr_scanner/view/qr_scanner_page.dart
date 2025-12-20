@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
+import '../../../core/util_manager/app_theme.dart';
 import '../../../core/util_manager/button_manager.dart';
 import '../controller/mobile_scanner_controller.dart';
 
@@ -49,7 +50,7 @@ class QRScannerPage extends StatelessWidget {
               width: controller.boxSize.toDouble(),
               height: controller.boxSize.toDouble(),
               decoration:
-              BoxDecoration(border: Border.all(color: Colors.white)),
+              BoxDecoration(border: Border.all(color: AppTheme.whiteColor)),
             ),
           ),
           Positioned(
@@ -57,8 +58,8 @@ class QRScannerPage extends StatelessWidget {
             left: 20,
             child: Button.button(
                 label: "Batal",
-                color: Colors.white,
-                fontColor: Colors.black,
+                color: AppTheme.whiteColor,
+                fontColor: AppTheme.blackColor,
                 function: () => Get.back()),
           ),
           Obx(
@@ -66,7 +67,7 @@ class QRScannerPage extends StatelessWidget {
               bottom: 20,
               right: 20,
               child: Button.button(
-                  color: controller.isTorch.isTrue ? Colors.black : Colors.red,
+                  color: controller.isTorch.isTrue ? AppTheme.blackColor : AppTheme.redColor,
                   label: controller.isTorch.isTrue
                       ? "Matikan flash"
                       : "Nyalakan Flash",

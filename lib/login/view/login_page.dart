@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/constant/screen_configuration.dart';
+import '../../core/util_manager/app_theme.dart';
 import '../controller/auth_controller.dart';
 
 class LoginPage extends GetView<AuthController> {
@@ -9,18 +10,18 @@ class LoginPage extends GetView<AuthController> {
   Widget loginAppname() {
     return Row(
       children: [
-        const Expanded(child: Divider(thickness: 1, color: Colors.red)),
+        Expanded(child: Divider(thickness: 1, color: AppTheme.redColor)),
         const SizedBox(width: 5),
-        const Text(
+        Text(
           "Sistem Manajemen Gudang",
           style: TextStyle(
             fontWeight: FontWeight.w800,
             fontSize: 18,
-            color: Colors.red,
+            color: AppTheme.redColor,
           ),
         ),
         const SizedBox(width: 5),
-        Expanded(child: Divider(thickness: 1, color: Colors.red.shade900)),
+        Expanded(child: Divider(thickness: 1, color: AppTheme.loginRedColor )),
       ],
     );
   }
@@ -33,11 +34,11 @@ class LoginPage extends GetView<AuthController> {
             (value) => value!.trim().isEmpty ? 'Username Required' : null,
         textInputAction: TextInputAction.next,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
           labelText: 'Username',
-          prefixIcon: Icon(Icons.person, color: Colors.red),
+          prefixIcon: Icon(Icons.person, color: AppTheme.redColor),
           contentPadding: EdgeInsets.only(left: 5, right: 5),
-          fillColor: Colors.grey,
+          fillColor: AppTheme.greyColor,
         ),
       ),
     );
@@ -54,7 +55,7 @@ class LoginPage extends GetView<AuthController> {
           obscureText: controller.isPasswordVisible.value,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           decoration: InputDecoration(
-            prefixIcon: const Icon(Icons.lock, color: Colors.red),
+            prefixIcon: Icon(Icons.lock, color: AppTheme.redColor),
             labelText: 'Password',
             contentPadding: const EdgeInsets.only(left: 5, right: 5),
             suffixIcon: GestureDetector(
@@ -67,8 +68,8 @@ class LoginPage extends GetView<AuthController> {
                     : Icons.visibility,
                 color:
                     controller.isPasswordVisible.value
-                        ? Colors.grey
-                        : Colors.red,
+                        ? AppTheme.greyColor
+                        : AppTheme.redColor
               ),
             ),
           ),
@@ -89,14 +90,14 @@ class LoginPage extends GetView<AuthController> {
           padding: const EdgeInsets.symmetric(vertical: 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            color: Colors.red,
+            color: AppTheme.redColor,
           ),
-          child: const Center(
+          child: Center(
             child: Text(
               "Login",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: AppTheme.whiteColor,
               ),
             ),
           ),
@@ -131,7 +132,7 @@ class LoginPage extends GetView<AuthController> {
     ScreenConfiguration().init(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppTheme.whiteColor,
       body: SingleChildScrollView(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(FocusNode()),

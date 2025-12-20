@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_keluar/controller/data_stok_keluar_controller.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_keluar/controller/riwayat_stok_keluar_controller.dart';
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/button_manager.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../revisi_stock_keluar_container.dart';
@@ -12,7 +13,7 @@ extension RiwayatStokKeluar on RevisiStockKeluarContainer {
     var header = controller.showDetailKeluar(noStokKeluar: noStokKeluar);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: BoxDecoration(color: AppTheme.whiteColor),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -53,26 +54,26 @@ extension RiwayatStokKeluar on RevisiStockKeluarContainer {
                   // Variasi
                   Text(
                     item?.namaWarna ?? "",
-                    style: const TextStyle(color: Colors.grey),
+                    style: TextStyle(color: AppTheme.greyColor),
                   ),
                   item?.isDeleted == 1
                       ? Container(
                     padding: const EdgeInsets.all(2),
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                         borderRadius:
-                        BorderRadius.all(Radius.circular(4)),
-                        color: Colors.red),
-                    child: const Text(
+                        const BorderRadius.all(Radius.circular(4)),
+                        color: AppTheme.redColor),
+                    child: Text(
                       "Sudah dihapus",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 8,
-                          color: Colors.white),
+                          color: AppTheme.whiteColor),
                     ),
                   )
                       : const SizedBox.shrink(),
                   const SizedBox(height: 8),
-                  Divider(thickness: 1, color: Colors.grey.shade300),
+                  Divider(thickness: 1, color: AppTheme.lightGrey),
                 ],
               );
             },
@@ -98,9 +99,9 @@ extension RiwayatStokKeluar on RevisiStockKeluarContainer {
           const SizedBox(height: 10),
           Button.button(
             label: "Pindai kode QR",
-            color: Colors.black,
+            color: AppTheme.blackColor,
             icon: Icons.qr_code,
-            fontColor: Colors.white,
+            fontColor: AppTheme.whiteColor,
             function: () {
               controller.onStartScanner();
             },
@@ -130,16 +131,16 @@ extension RiwayatStokKeluar on RevisiStockKeluarContainer {
                   textAlign: TextAlign.center,
                   text: TextSpan(
                     text: 'Tidak ada riwayat stok keluar ',
-                    style: const TextStyle(color: Colors.black),
+                    style:  TextStyle(color: AppTheme.blackColor),
                     children: <TextSpan>[
                       TextSpan(
                         text: "${controller.searchBarHistory.text}\n",
-                        style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+                        style:TextStyle(fontWeight: FontWeight.bold, color: AppTheme.redColor),
                       ),
                       TextSpan(
                         text: 'Silakan mencari riwayat stok keluar yang ingin dihapus dengan '
                             'mencari nomor Stok keluar atau melakukan scan kode QR berawal dengan SK ',
-                        style: const TextStyle(color: Colors.black),
+                        style: TextStyle(color: AppTheme.blackColor),
                       ),
                     ],
                   ),

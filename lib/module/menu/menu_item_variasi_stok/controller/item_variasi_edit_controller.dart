@@ -1,9 +1,9 @@
 import 'dart:developer';
 import 'dart:io';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/controller/variasi_warna_controller.dart';
 import '../../../../core/database/data/m_item_stok.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 import '../data/stok_grid_model.dart';
 import 'item_variasi_stok_controller.dart';
@@ -73,11 +73,11 @@ extension ItemVariasiEditController on ItemVariasiStokController{
       final errorMsg = isValidUpdate(noCategory[0], noLocation[0]);
 
       if (errorMsg != null) {
-        // langsung tampilkan snackbar spesifik
+
         SnackBarManager().onShowSnacbarMessage(
           title: "Validasi Gagal",
           content: errorMsg,
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP,
         );
         return;
@@ -117,7 +117,7 @@ extension ItemVariasiEditController on ItemVariasiStokController{
         SnackBarManager().onShowSnacbarMessage(
           title: "Sukses",
           content: "Stok berhasil diubah",
-          colors: Colors.green,
+          colors: AppTheme.greenColor,
           position: SnackPosition.BOTTOM,
         );
       });
@@ -131,7 +131,7 @@ extension ItemVariasiEditController on ItemVariasiStokController{
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal",
         content: "Gagal mengubah data item: $shortMsg",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     }

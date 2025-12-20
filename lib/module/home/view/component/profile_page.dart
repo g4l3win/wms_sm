@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wms_sm/module/home/controller/profile_controller.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/button_manager.dart';
 import '../../../../core/util_manager/form_manager.dart';
 import '../home_page.dart';
@@ -18,18 +19,18 @@ extension ProfilePage on HomePage {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Username",
             style: TextStyle(
-              color: Colors.black,
+              color: AppTheme.blackColor,
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),
           Text(
             controller.fieldUsername.value,
-            style: const TextStyle(
-              color: Colors.grey,
+            style: TextStyle(
+              color: AppTheme.greyColor,
               fontSize: 12,
               fontWeight: FontWeight.bold,
             ),
@@ -47,7 +48,7 @@ extension ProfilePage on HomePage {
           FormInputText(
             title: "Nama depan",
             txtcontroller: controller.fieldFirstName,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: true,
             txtLine: 1,
@@ -57,7 +58,7 @@ extension ProfilePage on HomePage {
           FormInputText(
             title: "Nama belakang",
             txtcontroller: controller.fieldLastName,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: true,
             txtLine: 1,
@@ -72,8 +73,8 @@ extension ProfilePage on HomePage {
               Expanded(
                   child: Button.button(
                       label: "Batal",
-                      color: Colors.white,
-                      fontColor: Colors.black,
+                      color: AppTheme.whiteColor,
+                      fontColor: AppTheme.blackColor,
                       function: () {
                         controller.onCancel();
                       })),
@@ -92,7 +93,7 @@ extension ProfilePage on HomePage {
           FormInputText(
             title: "Password Sekarang",
             txtcontroller: controller.fieldOldPassword,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: true,
             txtLine: 1,
@@ -103,7 +104,7 @@ extension ProfilePage on HomePage {
           FormInputText(
             title: "Ganti Password",
             txtcontroller: controller.fieldNewPassword,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: true,
             txtLine: 1,
@@ -114,7 +115,7 @@ extension ProfilePage on HomePage {
           FormInputText(
             title: "Konfirmasi Password",
             txtcontroller: controller.fieldConfirmPassword,
-            borderColors: Colors.grey.shade300,
+            borderColors: AppTheme.lightGrey,
             textInputType: TextInputType.text,
             txtEnable: true,
             txtLine: 1,
@@ -130,8 +131,8 @@ extension ProfilePage on HomePage {
               Expanded(
                   child: Button.button(
                       label: "Batal",
-                      color: Colors.white,
-                      fontColor: Colors.black,
+                      color: AppTheme.whiteColor,
+                      fontColor: AppTheme.blackColor,
                       function: () {
                         controller.onCancelChangePassword();
                       })),

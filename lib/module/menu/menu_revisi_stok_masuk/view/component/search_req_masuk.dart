@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/button_manager.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../revisi_stock_masuk_container.dart';
@@ -21,9 +22,9 @@ extension ScanSearchReqPage on RevisiStockMasukContainer {
           const SizedBox(height: 10),
           Button.button(
             label: "Pindai kode QR",
-            color: Colors.black,
+            color: AppTheme.blackColor,
             icon: Icons.qr_code,
-            fontColor: Colors.white,
+            fontColor: AppTheme.whiteColor,
             function: () {
               controller.onStartScanner();
             },

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'app_theme.dart';
 import 'button_manager.dart';
 
 class FormInputText extends StatelessWidget {
@@ -53,12 +54,12 @@ class FormInputText extends StatelessWidget {
               child:RichText(
                 text: TextSpan(
                   text: title,
-                  style: const TextStyle(color: Colors.black, fontSize: 14),
+                  style: TextStyle(color: AppTheme.blackColor, fontSize: 14),
                   children: isMandatory
                       ?  [
                     TextSpan(
                       text: ' *',
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(color: AppTheme.redColor),
                     ),
                   ]
                       : [],
@@ -78,7 +79,7 @@ class FormInputText extends StatelessWidget {
             onChanged: function,
             decoration: InputDecoration(
               hintText: title,
-              hintStyle: TextStyle(color: hintColor ?? Colors.grey.shade400),
+              hintStyle: TextStyle(color: hintColor ?? AppTheme.greyColor400),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -93,7 +94,7 @@ class FormInputText extends StatelessWidget {
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(width: 1,
                     color: enableBorderColor ??
-                Colors.grey.shade300),
+                AppTheme.lightGrey),
                 borderRadius: BorderRadius.circular(8),
               ),
               errorText: errorText,
@@ -147,12 +148,12 @@ class FormInputTextMin extends StatelessWidget {
               child: RichText(
                 text: TextSpan(
                   text: title,
-                  style: const TextStyle(color: Colors.black, fontSize: 14),
+                  style: TextStyle(color: AppTheme.blackColor, fontSize: 14),
                   children: isMandatory
                       ?  [
                     TextSpan(
                       text: ' *',
-                      style: TextStyle(color: Colors.red),
+                      style: TextStyle(color: AppTheme.redColor),
                     ),
                   ]
                       : [],
@@ -171,7 +172,7 @@ class FormInputTextMin extends StatelessWidget {
             onChanged: function,
             decoration: InputDecoration(
               hintText: title,
-              hintStyle: TextStyle(color: Colors.grey.shade400),
+              hintStyle: TextStyle(color: AppTheme.greyColor400),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -181,7 +182,7 @@ class FormInputTextMin extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 1, color: Colors.grey.shade300),
+                borderSide: BorderSide(width: 1, color: AppTheme.lightGrey),
                 borderRadius: BorderRadius.circular(8),
               ),
             ),
@@ -217,12 +218,12 @@ class DropdownWidget extends StatelessWidget {
         RichText(
           text: TextSpan(
             text: label,
-            style: const TextStyle(color: Colors.black, fontSize: 14),
+            style: TextStyle(color: AppTheme.blackColor, fontSize: 14),
             children: isMandatory
                 ?  [
               TextSpan(
                 text: ' *',
-                style: TextStyle(color: Colors.red),
+                style: TextStyle(color: AppTheme.redColor),
               ),
             ]
                 : [],
@@ -233,9 +234,9 @@ class DropdownWidget extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey.shade400),
+            border: Border.all(color: AppTheme.greyColor400),
             borderRadius: BorderRadius.circular(8),
-            color: Colors.white,
+            color: AppTheme.whiteColor,
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
@@ -248,7 +249,7 @@ class DropdownWidget extends StatelessWidget {
                       value: loc,
                       child: Text(
                         loc,
-                        style: const TextStyle(color: Colors.black, fontSize: 12),
+                        style: TextStyle(color: AppTheme.blackColor, fontSize: 12),
                       ),
                     );
                   }).toList(),
@@ -286,16 +287,16 @@ class ScrollSelector extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal: 6),
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               decoration: BoxDecoration(
-                color: isSelected ? Colors.black : Colors.grey[200],
+                color: isSelected ? AppTheme.blackColor : Colors.grey[200],
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: isSelected ? Colors.black : Colors.grey,
+                  color: isSelected ? AppTheme.blackColor : AppTheme.greyColor,
                 ),
               ),
               child: Text(
                 category,
                 style: TextStyle(
-                  color: isSelected ? Colors.white : Colors.black,
+                  color: isSelected ? AppTheme.whiteColor : AppTheme.blackColor,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -324,7 +325,7 @@ class SearchBarWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
-        border: Border.all(width: 1.0, color: Colors.grey.shade300),
+        border: Border.all(width: 1.0, color: AppTheme.lightGrey),
         borderRadius: const BorderRadius.all(Radius.circular(8)),
       ),
       child: TextField(
@@ -389,7 +390,7 @@ class SelectDate extends StatelessWidget {
             txtReadonly: true,
             txtLine: 1,
             txtEnable: false,
-            borderColors: Colors.black,
+            borderColors: AppTheme.blackColor,
             txtcontroller: textController,
             isMandatory: true,
           ),
@@ -400,8 +401,8 @@ class SelectDate extends StatelessWidget {
             const SizedBox(height: 20),
             Button.button(
               label: "Pilih Tanggal",
-              color: Colors.black,
-              fontColor: Colors.white,
+              color: AppTheme.blackColor,
+              fontColor: AppTheme.whiteColor,
               function: onPickDate
             ),
           ],

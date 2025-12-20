@@ -10,6 +10,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/controller/variasi_warna_controller.dart';
 import '../../../../core/database/data/m_item_stok.dart';
 import '../../../../core/database/database_helper/database_helper.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/dialog_manager.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 import '../../../../navigation/routes.dart';
@@ -261,7 +262,7 @@ class ItemVariasiStokController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal mendapatkan scan",
         content: "error $e",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     }
@@ -376,7 +377,7 @@ class ItemVariasiStokController extends GetxController {
         SnackBarManager().onShowSnacbarMessage(
           title: "Validasi Gagal",
           content: errorMsg, // tampilkan pesan spesifik
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP,
         );
         return;
@@ -403,7 +404,7 @@ class ItemVariasiStokController extends GetxController {
         SnackBarManager().onShowSnacbarMessage(
           title: "Sukses",
           content: "Stok baru berhasil ditambahkan",
-          colors: Colors.green,
+          colors: AppTheme.greenColor,
           position: SnackPosition.BOTTOM,
         );
       });
@@ -413,7 +414,7 @@ class ItemVariasiStokController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal menambahkan data Item baru",
         content: "error $e",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.TOP,
       );
     }
@@ -446,7 +447,7 @@ class ItemVariasiStokController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Sukses",
         content: "Variasi dan ROP Stok baru berhasil ditambahkan",
-        colors: Colors.green,
+        colors: AppTheme.greenColor,
         position: SnackPosition.BOTTOM,
       );
     } catch (e) {
@@ -454,7 +455,7 @@ class ItemVariasiStokController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal ",
         content: "error menambahkan data variasi dan ROP",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.TOP,
       );
     }
@@ -470,7 +471,7 @@ class ItemVariasiStokController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Sukses",
         content: "Data stok berhasil dihapus",
-        colors: Colors.green,
+        colors: AppTheme.greenColor,
         position: SnackPosition.BOTTOM,
       );
     } catch (e) {
@@ -480,7 +481,7 @@ class ItemVariasiStokController extends GetxController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Perhatian",
         content: "$e",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     }
@@ -493,7 +494,7 @@ class ItemVariasiStokController extends GetxController {
       return SnackBarManager().onShowSnacbarMessage(
         title: "Perhatian",
         content: "Terjadi kesalahan tidak ada data untuk dicetak",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.BOTTOM,
       );
     } else {

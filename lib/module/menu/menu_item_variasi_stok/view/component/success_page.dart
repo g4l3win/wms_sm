@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../item_variasi_stok_container.dart';
 
 extension SuccessPage on ItemVariasiStokContainer {
@@ -13,10 +14,10 @@ extension SuccessPage on ItemVariasiStokContainer {
         children: [
           const SizedBox(height: 20),
           // Icon sukses
-          const CircleAvatar(
+          CircleAvatar(
             radius: 40,
-            backgroundColor: Colors.black,
-            child: Icon(Icons.check, color: Colors.white, size: 40),
+            backgroundColor: AppTheme.blackColor,
+            child: Icon(Icons.check, color: AppTheme.whiteColor, size: 40),
           ),
           const SizedBox(height: 16),
           const Text(
@@ -24,9 +25,9 @@ extension SuccessPage on ItemVariasiStokContainer {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 4),
-          const Text(
+          Text(
             "Anda dapat melakukan print label stok",
-            style: TextStyle(color: Colors.grey),
+            style: TextStyle(color: AppTheme.greyColor),
           ),
           const SizedBox(height: 24),
 
@@ -51,7 +52,7 @@ extension SuccessPage on ItemVariasiStokContainer {
                 margin: const EdgeInsets.only(bottom: 12),
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey.shade300),
+                  border: Border.all(color: AppTheme.lightGrey),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Row(
@@ -61,8 +62,8 @@ extension SuccessPage on ItemVariasiStokContainer {
                         ? Container(
                             width: 60,
                             height: 60,
-                            color: Colors.grey.shade300,
-                            child: const Icon(Icons.image, color: Colors.grey),
+                            color: AppTheme.lightGrey,
+                            child: Icon(Icons.image, color: AppTheme.greyColor),
                           )
                         : Image.file(
                              File(stock.gambarPath!),
@@ -84,15 +85,15 @@ extension SuccessPage on ItemVariasiStokContainer {
                           ),
                           Text(
                             stock.namaItem ?? "",
-                            style: const TextStyle(color: Colors.black),
+                            style: TextStyle(color: AppTheme.blackColor),
                           ),
                           Text(
                             stock.namaWarna ?? "",
-                            style: const TextStyle(color: Colors.grey),
+                            style: TextStyle(color: AppTheme.greyColor),
                           ),
                           Text(
                             "${stock.jumlah.toString()} - ${stock.unit ?? ""}",
-                            style: const TextStyle(color: Colors.grey),
+                            style: TextStyle(color: AppTheme.greyColor),
                           ),
                         ],
                       ),

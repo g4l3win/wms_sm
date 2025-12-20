@@ -1,8 +1,8 @@
 import 'dart:developer';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/controller/variasi_warna_controller.dart';
 import '../../../../core/database/database_helper/database_helper.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 import '../data/stok_grid_model.dart';
 import 'item_variasi_stok_controller.dart';
@@ -25,7 +25,7 @@ extension AddVariasiOnlyController on ItemVariasiStokController{
         SnackBarManager().onShowSnacbarMessage(
           title: "Perhatian",
           content: "Jumlah variasi melebihi batas maksimum ($maxIncrement)",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP,
         );
       }
@@ -38,7 +38,7 @@ extension AddVariasiOnlyController on ItemVariasiStokController{
         SnackBarManager().onShowSnacbarMessage(
           title: "Perhatian",
           content: "Jumlah variasi minimal $minIncrement",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP,
         );
       }
@@ -127,7 +127,7 @@ extension AddVariasiOnlyController on ItemVariasiStokController{
         SnackBarManager().onShowSnacbarMessage(
           title: "Validasi Gagal",
           content: errorMsg, // tampilkan pesan spesifik
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP,
         );
         return;
@@ -162,7 +162,7 @@ extension AddVariasiOnlyController on ItemVariasiStokController{
       SnackBarManager().onShowSnacbarMessage(
         title: "Sukses",
         content: "Variasi dan ROP stok baru berhasil ditambahkan",
-        colors: Colors.green,
+        colors: AppTheme.greenColor,
         position: SnackPosition.BOTTOM,
       );
     } catch (e) {
@@ -171,7 +171,7 @@ extension AddVariasiOnlyController on ItemVariasiStokController{
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal",
         content: "Terjadi kesalahan saat menambahkan variasi dan ROP: $e",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.TOP,
       );
     }

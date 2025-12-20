@@ -9,6 +9,7 @@ import 'package:wms_sm/module/menu/menu_item_variasi_stok/view/component/edit_it
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/view/component/edit_rop_form.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/view/component/grid_item_stok.dart';
 import 'package:wms_sm/module/menu/menu_item_variasi_stok/view/component/success_page.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/appbar_manager.dart';
 import '../../../../core/util_manager/button_manager.dart';
 import '../../../../core/util_manager/dialog_manager.dart';
@@ -113,7 +114,7 @@ class ItemVariasiStokContainer extends GetView<ItemVariasiStokController> {
           controller.onBack();
         },
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.whiteColor,
           appBar: AppBarManager.appbarMenu(
             onTap: () {
               controller.onBack();

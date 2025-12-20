@@ -6,6 +6,7 @@ import 'package:wms_sm/module/menu/menu_revisi_stok_masuk/view/component/search_
 import 'package:wms_sm/module/menu/menu_revisi_stok_masuk/view/component/stok_masuk_detail_page.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_masuk/view/component/stok_masuk_item_page.dart';
 import 'package:wms_sm/module/menu/menu_revisi_stok_masuk/view/component/success_stok_masuk.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/appbar_manager.dart';
 import '../../../../core/util_manager/button_manager.dart';
 import '../../../../core/util_manager/dialog_manager.dart';
@@ -23,7 +24,7 @@ class RevisiStockMasukContainer extends GetView<RevisiStockMasukController> {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
-              border: Border.all(color: Colors.grey.shade300),
+              border: Border.all(color: AppTheme.lightGrey),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.shade800,
@@ -33,12 +34,12 @@ class RevisiStockMasukContainer extends GetView<RevisiStockMasukController> {
               ],
             ),
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-            child: const Row(
+            child: Row(
               children: [
                 Text(
                   "Riwayat",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: AppTheme.whiteColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
                   ),
@@ -126,7 +127,7 @@ class RevisiStockMasukContainer extends GetView<RevisiStockMasukController> {
       if (controller.pageIdx.value == 0) {
         return AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.whiteColor,
           elevation: 0,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -136,12 +137,12 @@ class RevisiStockMasukContainer extends GetView<RevisiStockMasukController> {
                 child: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    border: Border.all(width: 1, color: Colors.grey),
+                    border: Border.all(width: 1, color: AppTheme.greyColor),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Icon(
+                  child:  Icon(
                     Icons.arrow_back_rounded,
-                    color: Colors.black,
+                    color: AppTheme.blackColor,
                     size: 22,
                   ),
                 ),
@@ -149,8 +150,8 @@ class RevisiStockMasukContainer extends GetView<RevisiStockMasukController> {
               const SizedBox(width: 10),
               Text(
                 "Cari Permintaan Stok Masuk",
-                style: const TextStyle(
-                  color: Colors.black,
+                style:  TextStyle(
+                  color: AppTheme.blackColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
@@ -203,7 +204,7 @@ class RevisiStockMasukContainer extends GetView<RevisiStockMasukController> {
           controller.onBack();
         },
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: AppTheme.whiteColor,
           appBar: appBarStok(),
           body: SingleChildScrollView(
             child: Stack(

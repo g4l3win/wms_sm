@@ -1,11 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
-
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:crypto/crypto.dart';
 import '../../../core/database/database_helper/database_helper.dart';
+import '../../../core/util_manager/app_theme.dart';
 import '../../../core/util_manager/snackbar_manager.dart';
 import 'home_controller.dart';
 
@@ -50,14 +48,14 @@ extension ProfileController on HomeController {
       SnackBarManager().onShowSnacbarMessage(
           title: "Update berhasil",
           content: "Update data user berhasil",
-          colors: Colors.green,
+          colors: AppTheme.greenColor,
           position: SnackPosition.TOP);
     } catch (e){
       log("error $e");
       SnackBarManager().onShowSnacbarMessage(
           title: "Update Gagal",
           content: "gagal $e",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP);
     }
   }
@@ -82,7 +80,7 @@ extension ProfileController on HomeController {
         SnackBarManager().onShowSnacbarMessage(
           title: "Error",
           content: "Semua field password harus diisi",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP,
         );
         return;
@@ -94,7 +92,7 @@ extension ProfileController on HomeController {
         SnackBarManager().onShowSnacbarMessage(
           title: "Error",
           content: "Konfirmasi password tidak cocok",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP,
         );
         return;
@@ -114,7 +112,7 @@ extension ProfileController on HomeController {
         SnackBarManager().onShowSnacbarMessage(
           title: "Error",
           content: "Password lama salah",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.TOP,
         );
         return;
@@ -132,7 +130,7 @@ extension ProfileController on HomeController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Berhasil",
         content: "Password berhasil diubah",
-        colors: Colors.green,
+        colors: AppTheme.greenColor,
         position: SnackPosition.TOP,
       );
 
@@ -143,7 +141,7 @@ extension ProfileController on HomeController {
       SnackBarManager().onShowSnacbarMessage(
         title: "Gagal",
         content: "Terjadi kesalahan saat ubah password",
-        colors: Colors.red,
+        colors: AppTheme.redColor,
         position: SnackPosition.TOP,
       );
     }

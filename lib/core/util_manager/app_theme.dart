@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static var blackColor = Colors.black;
+  static var blackColor87 = Colors.black87;
   static var redColor = Colors.red;
   static var loginRedColor = Colors.red.shade900;
   static var greyColor = Colors.grey;
+  static var greyColor400 = Colors.grey.shade400;
   static var lightGrey = Colors.grey.shade300;
   static var lighterGrey = Colors.grey.shade100;
   static var whiteColor = Colors.white;
+  static var whiteColor60 =  Colors.white60;
   static var greenColor = Colors.green;
   static var purpleColor = Colors.purple;
   static var deepOrangeColor = Colors.deepOrange;

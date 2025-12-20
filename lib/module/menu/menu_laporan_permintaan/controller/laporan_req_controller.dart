@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../../../core/database/database_helper/database_helper.dart';
+import '../../../../core/util_manager/app_theme.dart';
 import '../../../../core/util_manager/snackbar_manager.dart';
 import '../../../month_year_picker/view/month_year_picker.dart';
 import '../data/m_permintaan_keluar.dart';
@@ -233,7 +234,7 @@ Where p.tgl_permintaan_keluar LIKE ?
         return SnackBarManager().onShowSnacbarMessage(
           title: "Perhatian",
           content: "Tidak ada data permintaan stok masuk yang dapat dicetak",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.BOTTOM,
         );
       } else {
@@ -244,7 +245,7 @@ Where p.tgl_permintaan_keluar LIKE ?
         return SnackBarManager().onShowSnacbarMessage(
           title: "Perhatian",
           content: "Tidak ada data laporan stok keluar yang dapat dicetak",
-          colors: Colors.red,
+          colors: AppTheme.redColor,
           position: SnackPosition.BOTTOM,
         );
       } else {

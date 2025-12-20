@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/util_manager/app_theme.dart';
 import '../../../../../core/util_manager/form_manager.dart';
 import '../../data/stok_keluar_model.dart';
 import '../../data/stok_masuk_model.dart';
@@ -9,31 +10,31 @@ extension StokKeluarContainer on LaporanContainer {
 
      Widget detailRow(String title, String value, {StokKeluarModel? dataKeluar, StokMasukModel? dataMasuk}) {
     Color colorKeluar =  dataKeluar == null
-        ? Colors.white
+        ? AppTheme.whiteColor
         : dataKeluar.stokSekarang == 0
-        ? Colors.grey.shade300
+        ? AppTheme.lightGrey
         : dataKeluar.stokSekarang! < dataKeluar.rop!
         ? Colors.yellow
-        : Colors.white;
+        : AppTheme.whiteColor;
 
     Color colorMasuk =dataMasuk == null
-        ? Colors.white
+        ? AppTheme.whiteColor
         : dataMasuk.stokSekarang == 0
-        ? Colors.grey.shade300
+        ? AppTheme.lightGrey
         : dataMasuk.stokSekarang! < dataMasuk.rop!
         ? Colors.yellow
-        : Colors.white;
+        : AppTheme.whiteColor;
     return Container(
       margin: const EdgeInsets.all(2),
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
           border: Border(
             bottom:
-                BorderSide(color: Colors.grey.shade300, width: 1), // cuma bawah
+                BorderSide(color: AppTheme.lightGrey, width: 1), // cuma bawah
           ),
           borderRadius: const BorderRadius.all(Radius.circular(4)),
           color: dataKeluar != null ? colorKeluar :
-              dataMasuk != null ? colorMasuk : Colors.white,),
+              dataMasuk != null ? colorMasuk : AppTheme.whiteColor,),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -51,30 +52,30 @@ extension StokKeluarContainer on LaporanContainer {
           dataKeluar?.isDeleted == 1
               ? Container(
                   padding: const EdgeInsets.all(2),
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(4)),
-                      color: Colors.red),
-                  child: const Text(
+                      color: AppTheme.redColor),
+                  child: Text(
                     "Sudah dihapus",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 8,
-                        color: Colors.white),
+                        color: AppTheme.whiteColor),
                   ),
                 )
               : const SizedBox.shrink(),
           dataMasuk?.isDeleted == 1
               ? Container(
             padding: const EdgeInsets.all(2),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(4)),
-                color: Colors.red),
-            child: const Text(
+                color: AppTheme.redColor),
+            child: Text(
               "Sudah dihapus",
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 8,
-                  color: Colors.white),
+                  color: AppTheme.whiteColor),
             ),
           )
               : const SizedBox.shrink(),
@@ -92,7 +93,7 @@ extension StokKeluarContainer on LaporanContainer {
       margin: const EdgeInsets.only(bottom: 4),
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade300),
+        border: Border.all(color: AppTheme.lightGrey),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -136,7 +137,7 @@ extension StokKeluarContainer on LaporanContainer {
       width: double.infinity,
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade400),
+        border: Border.all(color: AppTheme.greyColor400),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
