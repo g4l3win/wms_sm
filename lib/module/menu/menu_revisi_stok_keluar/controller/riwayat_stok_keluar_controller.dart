@@ -9,7 +9,7 @@ import '../../menu_laporan/data/stok_keluar_model.dart';
 extension RiwayatStokKeluarController on RevisiStockKeluarController {
   onCheckQRRiwayatData(String scanResult) async {
     searchBarHistory.text = "";
-    searchResult.value ="";
+    searchResult.value = "";
 
     try {
       if (scanResult != "-1") {
@@ -32,8 +32,8 @@ extension RiwayatStokKeluarController on RevisiStockKeluarController {
   StokKeluarModel? showDetailKeluar({required String noStokKeluar}) {
     var empty = StokKeluarModel();
 
-    var detailStokKeluar =
-    listStokKeluar.firstWhereOrNull((pro) => pro.noStokKeluar == noStokKeluar);
+    var detailStokKeluar = listStokKeluar
+        .firstWhereOrNull((pro) => pro.noStokKeluar == noStokKeluar);
 
     return detailStokKeluar ?? empty;
   }
@@ -44,9 +44,15 @@ extension RiwayatStokKeluarController on RevisiStockKeluarController {
       var listDetailItem = lsDetailStokKeluar[lsNoStokKeluarGrouped.first];
       if (listDetailItem != null) {
         for (var item in listDetailItem) {
-          if (item.noItemWarna != null && item.jumlahKeluar != null && item.leadTimeHari != null) {
+          if (item.noItemWarna != null &&
+              item.jumlahKeluar != null &&
+              item.leadTimeHari != null) {
             await deleteStokKeluarCascade(
-                item.noItemWarna!, lsNoStokKeluarGrouped.first, item.jumlahKeluar!, item.leadTimeHari!, noPermintaan.value);
+                item.noItemWarna!,
+                lsNoStokKeluarGrouped.first,
+                item.jumlahKeluar!,
+                item.leadTimeHari!,
+                item.no_permintaan_keluar!);
           } else {
             throw Exception("Ada nilai null no Item warna atau jumlah keluar");
           }
