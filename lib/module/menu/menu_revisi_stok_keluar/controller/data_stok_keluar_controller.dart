@@ -32,7 +32,8 @@ extension DataStokKeluarController on RevisiStockKeluarController {
     await db.insert('DETAIL_STOK_KELUAR', data);
   }
 
-  Future<List<Map<String, dynamic>>> getDataPermintaan(String noPermintaanKeluar) async {
+  Future<List<Map<String, dynamic>>> getDataPermintaan(
+      String noPermintaanKeluar) async {
     final result = await db.rawQuery(
       '''
    SELECT
@@ -61,6 +62,7 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
     );
     return result;
   }
+
   onAssignRequestData(String noPermintaanKeluar) async {
     var result = await getDataPermintaan(noPermintaanKeluar);
     if (result.isEmpty) {
@@ -73,22 +75,18 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
 
     noPermintaan.value = result.first['no_permintaan_keluar'];
     tglPermintaan.value = result.first['tgl_permintaan_keluar'];
-    totalBarang.value = result
-        .map((e) => e['NoItemWarna'])
-        .toSet()
-        .length;
+    totalBarang.value = result.map((e) => e['NoItemWarna']).toSet().length;
     fieldNoStokKeluar.text = await autoGenerateNoStokKeluar();
     qtyRealControllers.clear();
     for (var _ in detailPermintaan) {
       qtyRealControllers.add(TextEditingController());
     }
-    pageIdx.value =1;
+    pageIdx.value = 1;
     isScanned(false);
   }
 
   // ambil max stok keluar dalam 30 hari terakhir
   Future<double> getMaxSafetyStockInOneMonth(String noItemWarna) async {
-
     final result = await db.rawQuery(
       '''
     SELECT MAX(d.Jumlah) as MaxQty
@@ -128,9 +126,7 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
   }
 
   // hitung ROP baru
-  Future<double> calculateNewROP(
-      String noItemWarna,
-      int leadTimeDays) async {
+  Future<double> calculateNewROP(String noItemWarna, int leadTimeDays) async {
     var ss = await getMaxSafetyStockInOneMonth(noItemWarna);
     var avgDemand = await getAvgDemandInOneMonth(noItemWarna);
 
@@ -139,8 +135,7 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
   }
 
   Future<void> updateStatusPermintaanKeluar(
-      String noPermintaanKeluar, int status
-      ) async {
+      String noPermintaanKeluar, int status) async {
     await db.update(
       'permintaan_stok_keluar',
       {
@@ -152,13 +147,8 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
   }
 
   // update stok + SS + AD + ROP baru
-  Future<void> updateStokVariasiWarna(
-      String noItemWarna,
-      double qtyKeluar,
-      int leadTimeHari,
-      bool isDelete,
-      String noPermintaanKeluar
-      ) async {
+  Future<void> updateStokVariasiWarna(String noItemWarna, double qtyKeluar,
+      int leadTimeHari, bool isDelete, String noPermintaanKeluar) async {
     final result = await db.query(
       'VARIASI_WARNA',
       columns: ['Jumlah'],
@@ -202,7 +192,8 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
     }
   }
 
-  Future<void> showStokSnackBar(String noItemWarna, double stokBaru, double rop) async {
+  Future<void> showStokSnackBar(
+      String noItemWarna, double stokBaru, double rop) async {
     final snackBar = SnackBarManager();
 
     if (stokBaru == 0) {
@@ -222,7 +213,8 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
     } else {
       await snackBar.onShowSnacbarMessage(
         title: "Info",
-        content: "Stok nomor variasi $noItemWarna telah diperbarui menjadi $stokBaru.",
+        content:
+            "Stok nomor variasi $noItemWarna telah diperbarui menjadi $stokBaru.",
         colors: AppTheme.greenColor,
         position: SnackPosition.BOTTOM,
       );
@@ -230,8 +222,8 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
   }
 
   Future<List<Map<String, dynamic>>> getDataStokKeluar(
-      String noStokKeluar,
-      ) async {
+    String noStokKeluar,
+  ) async {
     final result = await db.rawQuery(
       '''
    SELECT 
@@ -248,6 +240,7 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
       m.NoStokKeluar,
       m.Tanggal,
       m.Keterangan,
+      m.no_permintaan_keluar,
       u.NamaDepan
     FROM VARIASI_WARNA v
     JOIN ITEM_STOK i ON v.NoItem = i.NoItem
@@ -276,21 +269,15 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
 
     for (int i = 0; i < lsNoStokKeluarGrouped.length; i++) {
       String noStokKeluar = lsNoStokKeluarGrouped[i];
-      var tempList =
-      listStokKeluar
+      var tempList = listStokKeluar
           .where((item) => item.noStokKeluar == noStokKeluar)
           .toList();
       lsDetailStokKeluar.addAll({noStokKeluar: tempList});
     }
   }
 
-  Future<void> deleteStokKeluarCascade(
-      String noItemWarna,
-      String noStokKeluar,
-      double qtyKeluar,
-      int leadTimeHari,
-      String noPermintaanKeluar
-      ) async {
+  Future<void> deleteStokKeluarCascade(String noItemWarna, String noStokKeluar,
+      double qtyKeluar, int leadTimeHari, String noPermintaanKeluar) async {
     // hapus dulu detail stok Keluar sesuai key
     await db.delete(
       'DETAIL_STOK_KELUAR',
@@ -315,6 +302,7 @@ WHERE p.no_permintaan_keluar = ? AND p.status_keluar = 0
       );
     }
 
-    await updateStokVariasiWarna(noItemWarna, qtyKeluar,leadTimeHari , true,noPermintaanKeluar);
+    await updateStokVariasiWarna(
+        noItemWarna, qtyKeluar, leadTimeHari, true, noPermintaanKeluar);
   }
 }
